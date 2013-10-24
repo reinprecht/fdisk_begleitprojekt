@@ -1,0 +1,75 @@
+package domainmodel;
+
+import java.util.ArrayList;
+
+/**
+ * User: Stefan
+ * Date: 12.09.13
+ * Time: 17:45
+ */
+public class Feuerwehrauto {
+    private String kennzeichen;
+    private String typ;
+    private int sitzplaetze;
+    private Feuerwehr feuerwehr;
+    private ArrayList<Geraet> geräte;
+    
+        public Feuerwehrauto(String kennzeichen, String typ, int sitzplaetze,
+                        Feuerwehr feuerwehr, ArrayList<Geraet> geräte) {
+                super();
+                this.kennzeichen = kennzeichen;
+                this.typ = typ;
+                this.sitzplaetze = sitzplaetze;
+                this.feuerwehr = feuerwehr;
+                this.geräte = geräte;
+        }
+    
+        public Feuerwehrauto(){
+                this.kennzeichen = "Z 99999";
+                this.typ = "Mustertyp";
+                this.sitzplaetze = 0;
+                this.feuerwehr = new Feuerwehr();
+                this.geräte = new ArrayList<Geraet>();
+        }
+
+        public String getKennzeichen() {
+                return kennzeichen;
+        }
+
+        public void setKennzeichen(String kennzeichen) {
+                this.kennzeichen = kennzeichen;
+        }
+
+        public String getTyp() {
+                return typ;
+        }
+
+        public void setTyp(String typ) {
+                this.typ = typ;
+        }
+
+        public int getSitzplaetze() {
+                return sitzplaetze;
+        }
+
+        public void setSitzplaetze(int sitzplaetze) {
+                this.sitzplaetze = sitzplaetze;
+        }
+
+        public Feuerwehr getFeuerwehr() {
+                return feuerwehr;
+        }
+
+        public void setFeuerwehr(Feuerwehr feuerwehr) {
+                this.feuerwehr = feuerwehr;
+        }
+
+        public ArrayList<Geraet> getGeräte() {
+                return geräte;
+        }
+
+        public void setGeräte(ArrayList<Geraet> geräte) {
+                this.geräte = geräte;
+        }
+        
+}
