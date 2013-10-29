@@ -1,12 +1,20 @@
 package domainmodel;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * User: Stefan
  * Date: 12.09.13
  * Time: 17:45
  */
+@Entity
+@Table(name = "gerät")
 public class Geraet {
+	
+	@Id
     private long id;
     private String bezeichnung;
     private Date pruefungstermin;

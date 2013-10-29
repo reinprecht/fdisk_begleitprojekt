@@ -2,14 +2,21 @@ package domainmodel;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 /**
  * User: Stefan
  * Date: 01.10.13
  * Time: 09:09
  */
+@Entity
+@Table(name = "kurs")
 public class Kurs {
         
+		@Id
         private long kursid;
         private String kurzBezeichnung;
         private String langBezeichnung;

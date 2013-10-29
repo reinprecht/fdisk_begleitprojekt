@@ -3,8 +3,15 @@ package domainmodel;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "charge")
 public class Charge extends Mitglied{
 
+		@Id
         private int standesbuchnummer;
         private String vorname;
         private String nachname;

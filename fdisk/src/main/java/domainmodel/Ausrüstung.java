@@ -2,58 +2,66 @@ package domainmodel;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "ausrüstung")
 public class Ausrüstung {
-        private int kennnummer;
-        private String bezeichnung;
-        private Mitglied benutzer;
-        private Date ausgegeben;
-        
-        public Ausrüstung(int kennnummer, String bezeichnung, Mitglied benutzer,
-                        Date ausgegeben) {
-                super();
-                this.kennnummer = kennnummer;
-                this.bezeichnung = bezeichnung;
-                this.benutzer = benutzer;
-                this.ausgegeben = ausgegeben;
-        }
 
-        public Ausrüstung(){
-                kennnummer = -1;
-                bezeichnung = "Testausrüstung";
-                benutzer = new Mitglied();
-                ausgegeben = new Date();
-        }
+	@Id
+	private int kennnummer;
+	private String bezeichnung;
+	private Mitglied benutzer;
+	private Date ausgegeben;
 
-        public int getKennnummer() {
-                return kennnummer;
-        }
+	public Ausrüstung(int kennnummer, String bezeichnung, Mitglied benutzer,
+			Date ausgegeben) {
+		super();
+		this.kennnummer = kennnummer;
+		this.bezeichnung = bezeichnung;
+		this.benutzer = benutzer;
+		this.ausgegeben = ausgegeben;
+	}
 
-        public void setKennnummer(int kennnummer) {
-                this.kennnummer = kennnummer;
-        }
+	public Ausrüstung() {
+		kennnummer = -1;
+		bezeichnung = "Testausrüstung";
+		benutzer = new Mitglied();
+		ausgegeben = new Date();
+	}
 
-        public String getBezeichnung() {
-                return bezeichnung;
-        }
+	public int getKennnummer() {
+		return kennnummer;
+	}
 
-        public void setBezeichnung(String bezeichnung) {
-                this.bezeichnung = bezeichnung;
-        }
+	public void setKennnummer(int kennnummer) {
+		this.kennnummer = kennnummer;
+	}
 
-        public Mitglied getBenutzer() {
-                return benutzer;
-        }
+	public String getBezeichnung() {
+		return bezeichnung;
+	}
 
-        public void setBenutzer(Mitglied benutzer) {
-                this.benutzer = benutzer;
-        }
+	public void setBezeichnung(String bezeichnung) {
+		this.bezeichnung = bezeichnung;
+	}
 
-        public Date getAusgegeben() {
-                return ausgegeben;
-        }
+	public Mitglied getBenutzer() {
+		return benutzer;
+	}
 
-        public void setAusgegeben(Date ausgegeben) {
-                this.ausgegeben = ausgegeben;
-        }
-        
+	public void setBenutzer(Mitglied benutzer) {
+		this.benutzer = benutzer;
+	}
+
+	public Date getAusgegeben() {
+		return ausgegeben;
+	}
+
+	public void setAusgegeben(Date ausgegeben) {
+		this.ausgegeben = ausgegeben;
+	}
+
 }

@@ -2,13 +2,20 @@ package domainmodel;
 
 import java.util.ArrayList;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * User: Stefan
  * Date: 01.10.13
  * Time: 09:11
  */
+@Entity
+@Table(name = "feuerwehr")
 public class Feuerwehr {
-
+		
+		@Id
         private int standesbuchnummer;
         private String Ort;
         private ArrayList<Mitglied> mitglieder;
