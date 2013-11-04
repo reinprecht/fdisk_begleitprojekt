@@ -3,101 +3,13 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
         version="2.0">
-    <persistence-unit name="AusbildungsService" transaction-type="RESOURCE_LOCAL">
-        <class>domainmodel.AusbildungsService</class>
+    <persistence-unit name="spengergassePU" transaction-type="RESOURCE_LOCAL">
+        <class>domain.BasePersistable</class>
         <properties>
-                <property name="hibernate.hbm2ddl.auto" value="create"/>
-                <property name="hibernate.show_sql" value="true"/>
+        	<property name="hibernate.hbm2ddl.auto" value="create"/>
+        	<property name="hibernate.show_sql" value="true"/>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:datajpa"/>
-            <property name="javax.persistence.jdbc.user" value="sa"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
-        </properties>
-    </persistence-unit>
-    <persistence-unit name="AurüstungService" transaction-type="RESOURCE_LOCAL">
-        <class>domainmodel.AusrüstungService</class>
-        <properties>
-                <property name="hibernate.hbm2ddl.auto" value="create"/>
-                <property name="hibernate.show_sql" value="true"/>
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:datajpa"/>
-            <property name="javax.persistence.jdbc.user" value="sa"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
-        </properties>
-    </persistence-unit>
-    <persistence-unit name="ChargeService" transaction-type="RESOURCE_LOCAL">
-        <class>domainmodel.ChargeService</class>
-        <properties>
-                <property name="hibernate.hbm2ddl.auto" value="create"/>
-                <property name="hibernate.show_sql" value="true"/>
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:datajpa"/>
-            <property name="javax.persistence.jdbc.user" value="sa"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
-        </properties>
-    </persistence-unit>
-    <persistence-unit name="FeuerwehrService" transaction-type="RESOURCE_LOCAL">
-        <class>domainmodel.FeuerwehrService</class>
-        <properties>
-                <property name="hibernate.hbm2ddl.auto" value="create"/>
-                <property name="hibernate.show_sql" value="true"/>
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:datajpa"/>
-            <property name="javax.persistence.jdbc.user" value="sa"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
-        </properties>
-    </persistence-unit>
-    <persistence-unit name="FeuerwehrautoService" transaction-type="RESOURCE_LOCAL">
-        <class>domainmodel.FeuerwehrautoService</class>
-        <properties>
-                <property name="hibernate.hbm2ddl.auto" value="create"/>
-                <property name="hibernate.show_sql" value="true"/>
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:datajpa"/>
-            <property name="javax.persistence.jdbc.user" value="sa"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
-        </properties>
-    </persistence-unit>
-    <persistence-unit name="GeraeteService" transaction-type="RESOURCE_LOCAL">
-        <class>domainmodel.GeraeteService</class>
-        <properties>
-                <property name="hibernate.hbm2ddl.auto" value="create"/>
-                <property name="hibernate.show_sql" value="true"/>
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:datajpa"/>
-            <property name="javax.persistence.jdbc.user" value="sa"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
-        </properties>
-    </persistence-unit>
-    <persistence-unit name="KommandantService" transaction-type="RESOURCE_LOCAL">
-        <class>domainmodel.KommandantService</class>
-        <properties>
-                <property name="hibernate.hbm2ddl.auto" value="create"/>
-                <property name="hibernate.show_sql" value="true"/>
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:datajpa"/>
-            <property name="javax.persistence.jdbc.user" value="sa"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
-        </properties>
-    </persistence-unit>
-    <persistence-unit name="KursService" transaction-type="RESOURCE_LOCAL">
-        <class>domainmodel.KursService</class>
-        <properties>
-                <property name="hibernate.hbm2ddl.auto" value="create"/>
-                <property name="hibernate.show_sql" value="true"/>
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:datajpa"/>
-            <property name="javax.persistence.jdbc.user" value="sa"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
-        </properties>
-    </persistence-unit>
-    <persistence-unit name="MitgliedService" transaction-type="RESOURCE_LOCAL">
-        <class>domainmodel.MitgliedService</class>
-        <properties>
-                <property name="hibernate.hbm2ddl.auto" value="create"/>
-                <property name="hibernate.show_sql" value="true"/>
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:datajpa"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:~/datajpa;AUTO_SERVER=TRUE"/>
             <property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="javax.persistence.jdbc.password" value=""/>
         </properties>
