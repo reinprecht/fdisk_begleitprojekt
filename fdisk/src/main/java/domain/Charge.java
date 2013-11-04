@@ -1,4 +1,4 @@
-package domainmodel;
+package domain;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,8 +11,6 @@ import javax.persistence.Table;
 @Table(name = "charge")
 public class Charge extends Mitglied{
 
-		@Id
-        private int standesbuchnummer;
         private String vorname;
         private String nachname;
         private String dienstgrad;
@@ -24,7 +22,6 @@ public class Charge extends Mitglied{
         private ArrayList<Kurs> kurse;
         
         public Charge(){
-                this.standesbuchnummer = -1;
                 this.vorname = "Max";
                 this.nachname = "Musterkommandant";
                 this.dienstgrad = "Musterdienstgrad";
@@ -36,12 +33,11 @@ public class Charge extends Mitglied{
                 this.kurse = new ArrayList<Kurs>();
         }
 
-        public Charge(int standesbuchnummer, String vorname, String nachname,
+        public Charge(String vorname, String nachname,
                         String dienstgrad, Date geburtsdatum, String wohnort,
                         Feuerwehr feuerwehr, String fachgebiet, ArrayList<Ausrüstung> ausrüstungen,
                         ArrayList<Kurs> kurse) {
                 super();
-                this.standesbuchnummer = standesbuchnummer;
                 this.vorname = vorname;
                 this.nachname = nachname;
                 this.dienstgrad = dienstgrad;
@@ -51,14 +47,6 @@ public class Charge extends Mitglied{
                 this.fachgebiet = fachgebiet;
                 this.ausrüstungen = ausrüstungen;
                 this.kurse = kurse;
-        }
-
-        public int getStandesbuchnummer() {
-                return standesbuchnummer;
-        }
-
-        public void setStandesbuchnummer(int standesbuchnummer) {
-                this.standesbuchnummer = standesbuchnummer;
         }
 
         public String getVorname() {

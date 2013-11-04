@@ -1,4 +1,4 @@
-package domainmodel;
+package domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -12,31 +12,24 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "gerät")
-public class Geraet {
+public class Geraet  extends BasePersistable {
 	
-	@Id
-    private long id;
     private String bezeichnung;
     private Date pruefungstermin;
     private Feuerwehrauto auto;
 
-    public Geraet(long id, String bezeichnung, Date pruefungstermin, Feuerwehrauto auto){
-        this.id = id;
+    public Geraet(String bezeichnung, Date pruefungstermin, Feuerwehrauto auto){
         this.bezeichnung = bezeichnung;
         this.pruefungstermin = pruefungstermin;
         this.auto = auto;
     }
     
     public Geraet(){
-            id = -1;
             bezeichnung = "Mustergerät";
             pruefungstermin = new Date();
             auto = new Feuerwehrauto();
     }
 
-    public long getId() {
-        return id;
-    }
 
     public String getBezeichnung() {
         return bezeichnung;
@@ -44,10 +37,6 @@ public class Geraet {
 
     public Date getPruefungstermin() {
         return pruefungstermin;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public void setBezeichnung(String bezeichnung) {

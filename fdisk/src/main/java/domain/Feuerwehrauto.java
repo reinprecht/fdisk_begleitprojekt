@@ -1,4 +1,4 @@
-package domainmodel;
+package domain;
 
 import java.util.ArrayList;
 
@@ -13,19 +13,16 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "feuerwehrauto")
-public class Feuerwehrauto {
+public class Feuerwehrauto  extends BasePersistable {
 	
-	@Id
-    private String kennzeichen;
     private String typ;
     private int sitzplaetze;
     private Feuerwehr feuerwehr;
     private ArrayList<Geraet> geräte;
     
-        public Feuerwehrauto(String kennzeichen, String typ, int sitzplaetze,
+        public Feuerwehrauto(String typ, int sitzplaetze,
                         Feuerwehr feuerwehr, ArrayList<Geraet> geräte) {
                 super();
-                this.kennzeichen = kennzeichen;
                 this.typ = typ;
                 this.sitzplaetze = sitzplaetze;
                 this.feuerwehr = feuerwehr;
@@ -33,19 +30,10 @@ public class Feuerwehrauto {
         }
     
         public Feuerwehrauto(){
-                this.kennzeichen = "Z 99999";
                 this.typ = "Mustertyp";
                 this.sitzplaetze = 0;
                 this.feuerwehr = new Feuerwehr();
                 this.geräte = new ArrayList<Geraet>();
-        }
-
-        public String getKennzeichen() {
-                return kennzeichen;
-        }
-
-        public void setKennzeichen(String kennzeichen) {
-                this.kennzeichen = kennzeichen;
         }
 
         public String getTyp() {
