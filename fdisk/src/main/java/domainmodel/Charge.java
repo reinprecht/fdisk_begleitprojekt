@@ -3,6 +3,8 @@ package domainmodel;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.ManyToOne;
+
 public class Charge extends Mitglied{
 
         private int standesbuchnummer;
