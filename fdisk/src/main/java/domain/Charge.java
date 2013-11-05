@@ -2,14 +2,11 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.Date;
-
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "charge")
-
 public class Charge extends Mitglied{
 
         private String vorname;
