@@ -1,23 +1,12 @@
 package repository;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
+import org.springframework.data.repository.CrudRepository;
 import domain.Feuerwehrauto;
 
-public class FeuerwehrautoRepository extends AbstractJpaRepository<Feuerwehrauto> {
+public interface FeuerwehrautoRepository extends CrudRepository<Feuerwehrauto, Long>{
 
-	public FeuerwehrautoRepository(EntityManager entityManager) {
-		super(entityManager);
-	}
+	List<Feuerwehrauto> findAll();
 
-	@Override
-	public List<Feuerwehrauto> findAll() {
-		return entityManager().createQuery("SELECT fa FROM Feuerwehrauto fa", Feuerwehrauto.class).getResultList();
-	}
-
-	@Override
-	public Feuerwehrauto findById(Long id) {
-		return entityManager().find(Feuerwehrauto.class, id);
-	}
+	Feuerwehrauto findById(Long id);
 }

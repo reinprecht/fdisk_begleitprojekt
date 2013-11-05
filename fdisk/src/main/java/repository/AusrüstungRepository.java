@@ -1,23 +1,12 @@
 package repository;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
+import org.springframework.data.repository.CrudRepository;
 import domain.Ausrüstung;
 
-public class AusrüstungRepository extends AbstractJpaRepository<Ausrüstung> {
+public interface AusrüstungRepository extends CrudRepository<Ausrüstung, Long> {
 
-	public AusrüstungRepository(EntityManager entityManager) {
-		super(entityManager);
-	}
+	List<Ausrüstung> findAll();
 
-	@Override
-	public List<Ausrüstung> findAll() {
-		return entityManager().createQuery("SELECT aus FROM Ausrüstung aus", Ausrüstung.class).getResultList();
-	}
-
-	@Override
-	public Ausrüstung findById(Long id) {
-		return entityManager().find(Ausrüstung.class, id);
-	}
+	Ausrüstung findById(Long id);
 }

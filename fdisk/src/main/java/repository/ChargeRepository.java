@@ -1,24 +1,12 @@
 package repository;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
+import org.springframework.data.repository.CrudRepository;
 import domain.Charge;
 
-public class ChargeRepository extends AbstractJpaRepository<Charge> {
+public interface ChargeRepository extends CrudRepository<Charge, Long> {
 
-	public ChargeRepository(EntityManager entityManager) {
-		super(entityManager);
-	}
+	List<Charge> findAll();
 
-	@Override
-	public List<Charge> findAll() {
-		return entityManager().createQuery("SELECT ch FROM Charge ch", Charge.class).getResultList();
-	}
-
-	@Override
-	public Charge findById(Long id) {
-		return entityManager().find(Charge.class, id);
-	}
-
+	Charge findById(Long id);
 }
