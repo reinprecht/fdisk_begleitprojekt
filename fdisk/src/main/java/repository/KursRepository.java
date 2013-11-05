@@ -3,22 +3,16 @@ package repository;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+
+import org.springframework.data.repository.CrudRepository;
+
 import domain.Ausbildung;
 
-public class KursRepository extends AbstractJpaRepository<Ausbildung>{
+public interface KursRepository extends CrudRepository<Ausbildung, Long>{
 
-	public KursRepository(EntityManager entityManager) {
-		super(entityManager);
-		// TODO Auto-generated constructor stub
-	}
 
-	@Override
-	public List<Ausbildung> findAll() {
-		return entityManager().createQuery("SELECT ku FROM Kurs ku", Ausbildung.class).getResultList();
-	}
+	public List<Ausbildung> findAll();
 
-	@Override
-	public Ausbildung findById(Long id) {
-		return entityManager().find(Ausbildung.class, id);
-	}
+
+	public Ausbildung findById(Long id);
 }
