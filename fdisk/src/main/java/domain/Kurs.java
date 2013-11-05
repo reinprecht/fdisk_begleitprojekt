@@ -1,6 +1,10 @@
-package domainmodel;
+package domain;
 
 import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 /**
@@ -8,19 +12,19 @@ import java.util.Date;
  * Date: 01.10.13
  * Time: 09:09
  */
-public class Kurs {
+@Entity
+@Table(name = "kurs")
+public class Kurs  extends BasePersistable {
         
-        private long kursid;
         private String kurzBezeichnung;
         private String langBezeichnung;
         private Date startdatum;
         private Date enddatum;
         private Feuerwehr kursOrt;
         
-        public Kurs(long kursid, String kurzBezeichnung, String langBezeichnung,
+        public Kurs(String kurzBezeichnung, String langBezeichnung,
                         Date startdatum, Date enddatum, Feuerwehr kursOrt) {
                 super();
-                this.kursid = kursid;
                 this.kurzBezeichnung = kurzBezeichnung;
                 this.langBezeichnung = langBezeichnung;
                 this.startdatum = startdatum;
@@ -29,20 +33,11 @@ public class Kurs {
         }
         
         public Kurs(){
-                this.kursid = -1;
                 this.kurzBezeichnung = "TK";
                 this.langBezeichnung = "Test Kurs";
                 this.startdatum = new Date();
                 this.enddatum = new Date();
                 this.kursOrt = new Feuerwehr();
-        }
-
-        public long getKursid() {
-                return kursid;
-        }
-
-        public void setKursid(long kursid) {
-                this.kursid = kursid;
         }
 
         public String getKurzBezeichnung() {

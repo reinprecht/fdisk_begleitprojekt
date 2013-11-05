@@ -1,4 +1,4 @@
-package domainmodel;
+package domain;
 
 import java.util.Date;
 
@@ -6,19 +6,16 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ausbildung")
-public class Ausbildung {
+public class Ausbildung extends BasePersistable {
         
-        @Id
-        private int kennnummer;
         private String bezeichnung;
         private String kurz_bezeichnung;
         private Feuerwehr ort;
         private Date datum;
         
-        public Ausbildung(int kennnummer, String bezeichnung,
+        public Ausbildung(String bezeichnung,
                         String kurz_bezeichnung, Feuerwehr ort, Date datum) {
                 super();
-                this.kennnummer = kennnummer;
                 this.bezeichnung = bezeichnung;
                 this.kurz_bezeichnung = kurz_bezeichnung;
                 this.ort = ort;
@@ -26,19 +23,10 @@ public class Ausbildung {
         }
 
         public Ausbildung(){
-                kennnummer = -1;
                 bezeichnung = "TestAusbildung";
                 kurz_bezeichnung = "Test";
                 ort = new Feuerwehr();
                 datum = new Date();
-        }
-
-        public int getKennnummer() {
-                return kennnummer;
-        }
-
-        public void setKennnummer(int kennnummer) {
-                this.kennnummer = kennnummer;
         }
 
         public String getBezeichnung() {
