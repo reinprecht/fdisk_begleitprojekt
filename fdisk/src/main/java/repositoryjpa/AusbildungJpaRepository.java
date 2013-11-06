@@ -1,14 +1,11 @@
 package repositoryjpa;
 
 import java.util.List;
-import javax.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 import domain.Ausbildung;
 
-public class AusbildungRepository extends AbstractJpaRepository<Ausbildung>{
-
-        public AusbildungRepository(EntityManager entityManager) {
-                super(entityManager);
-        }
+@Repository
+public class AusbildungJpaRepository extends AbstractJpaRepository<Ausbildung>{
 
 		@Override
 		public List<Ausbildung> findAll() {

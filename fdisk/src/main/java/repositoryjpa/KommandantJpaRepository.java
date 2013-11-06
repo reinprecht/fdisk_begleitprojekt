@@ -1,16 +1,11 @@
 package repositoryjpa;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 import domain.Kommandant;
 
-public class KommandantRepository extends AbstractJpaRepository<Kommandant>{
-
-	public KommandantRepository(EntityManager entityManager) {
-		super(entityManager);
-		// TODO Auto-generated constructor stub
-	}
+@Repository
+public class KommandantJpaRepository extends AbstractJpaRepository<Kommandant>{
 
 	@Override
 	public List<Kommandant> findAll() {

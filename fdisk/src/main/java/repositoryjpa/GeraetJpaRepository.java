@@ -1,15 +1,11 @@
 package repositoryjpa;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 import domain.Geraet;
 
-public class GeraetRepository extends AbstractJpaRepository<Geraet>{
-
-	public GeraetRepository(EntityManager entityManager) {
-		super(entityManager);
-	}
+@Repository
+public class GeraetJpaRepository extends AbstractJpaRepository<Geraet>{
 
 	@Override
 	public List<Geraet> findAll() {

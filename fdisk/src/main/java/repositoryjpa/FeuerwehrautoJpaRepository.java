@@ -1,15 +1,11 @@
 package repositoryjpa;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 import domain.Feuerwehrauto;
 
-public class FeuerwehrautoRepository extends AbstractJpaRepository<Feuerwehrauto> {
-
-	public FeuerwehrautoRepository(EntityManager entityManager) {
-		super(entityManager);
-	}
+@Repository
+public class FeuerwehrautoJpaRepository extends AbstractJpaRepository<Feuerwehrauto> {
 
 	@Override
 	public List<Feuerwehrauto> findAll() {

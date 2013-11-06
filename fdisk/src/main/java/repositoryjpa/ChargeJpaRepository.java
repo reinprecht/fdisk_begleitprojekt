@@ -1,15 +1,11 @@
 package repositoryjpa;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 import domain.Charge;
 
-public class ChargeRepository extends AbstractJpaRepository<Charge> {
-
-	public ChargeRepository(EntityManager entityManager) {
-		super(entityManager);
-	}
+@Repository
+public class ChargeJpaRepository extends AbstractJpaRepository<Charge> {
 
 	@Override
 	public List<Charge> findAll() {

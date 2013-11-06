@@ -1,16 +1,11 @@
 package repositoryjpa;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
+import org.springframework.stereotype.Repository;
 import domain.Ausbildung;
 
-public class KursRepository extends AbstractJpaRepository<Ausbildung>{
-
-	public KursRepository(EntityManager entityManager) {
-		super(entityManager);
-		// TODO Auto-generated constructor stub
-	}
+@Repository
+public class KursJpaRepository extends AbstractJpaRepository<Ausbildung>{
 
 	@Override
 	public List<Ausbildung> findAll() {
