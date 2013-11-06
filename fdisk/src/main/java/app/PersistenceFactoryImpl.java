@@ -3,87 +3,94 @@ package app;
 import java.util.HashMap;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-import repositoryjpa.AusbildungRepository;
-import repositoryjpa.AusrüstungRepository;
-import repositoryjpa.ChargeRepository;
-import repositoryjpa.FeuerwehrRepository;
-import repositoryjpa.FeuerwehrautoRepository;
-import repositoryjpa.GeraetRepository;
+import repositoryjpa.AusbildungJpaRepository;
+import repositoryjpa.AusrüstungJpaRepository;
+import repositoryjpa.ChargeJpaRepository;
+import repositoryjpa.FeuerwehrJpaRepository;
+import repositoryjpa.FeuerwehrautoJpaRepository;
+import repositoryjpa.GeraetJpaRepository;
 import repositoryjpa.JpaRepository;
-import repositoryjpa.KommandantRepository;
-import repositoryjpa.KursRepository;
-import repositoryjpa.MitgliedRepository;
+import repositoryjpa.KommandantJpaRepository;
+import repositoryjpa.KursJpaRepository;
+import repositoryjpa.MitgliedJpaRepository;
 import repositoryjpa.PersistenceFactory;
 
 public class PersistenceFactoryImpl implements PersistenceFactory {
 
-	private EntityManagerFactory entityManagerFactory;
-
-    private EntityManager entityManager;
-
     private final HashMap<Class<?>, JpaRepository> repositories = new HashMap<>();
-
-    public void setup(){
-    	entityManagerFactory = Persistence.createEntityManagerFactory("fdisk");
-        entityManager = entityManagerFactory.createEntityManager();
-        
-        repositories.put(AusbildungRepository.class, new AusbildungRepository(entityManager));
-        repositories.put(AusrüstungRepository.class, new AusrüstungRepository(entityManager));
-        repositories.put(ChargeRepository.class, new ChargeRepository(entityManager));
-        repositories.put(FeuerwehrautoRepository.class, new FeuerwehrautoRepository(entityManager));
-        repositories.put(FeuerwehrRepository.class, new FeuerwehrRepository(entityManager));
-        repositories.put(GeraetRepository.class, new GeraetRepository(entityManager));
-        repositories.put(KommandantRepository.class, new KommandantRepository(entityManager));
-        repositories.put(KursRepository.class, new KursRepository(entityManager));
-        repositories.put(MitgliedRepository.class, new MitgliedRepository(entityManager));
+    
+    public PersistenceFactoryImpl(EntityManager entityManager){
+    	AusbildungJpaRepository ausbildungJPARepository = new AusbildungJpaRepository();
+    	ausbildungJPARepository.setEntityManager(entityManager);
+    	repositories.put(AusbildungJpaRepository.class, ausbildungJPARepository);
+    	
+    	AusrüstungJpaRepository ausrüstungJPARepository = new AusrüstungJpaRepository();
+    	ausrüstungJPARepository.setEntityManager(entityManager);
+    	repositories.put(AusrüstungJpaRepository.class, ausrüstungJPARepository);
+    	
+    	ChargeJpaRepository chargeJPARepository = new ChargeJpaRepository();
+    	chargeJPARepository.setEntityManager(entityManager);
+    	repositories.put(ChargeJpaRepository.class, chargeJPARepository);
+    	
+    	FeuerwehrJpaRepository feuerwehrJPARepository = new FeuerwehrJpaRepository();
+    	feuerwehrJPARepository.setEntityManager(entityManager);
+    	repositories.put(FeuerwehrJpaRepository.class, feuerwehrJPARepository);
+    	
+    	FeuerwehrautoJpaRepository feuerwehrautoRepository = new FeuerwehrautoJpaRepository();
+    	feuerwehrautoRepository.setEntityManager(entityManager);
+    	repositories.put(FeuerwehrautoJpaRepository.class, feuerwehrautoRepository);
+    	
+    	GeraetJpaRepository geraeteRepository = new GeraetJpaRepository();
+    	geraeteRepository.setEntityManager(entityManager);
+    	repositories.put(GeraetJpaRepository.class, geraeteRepository);
+    	
+    	KommandantJpaRepository kommandantRepository = new KommandantJpaRepository();
+    	kommandantRepository.setEntityManager(entityManager);
+    	repositories.put(KommandantJpaRepository.class, kommandantRepository);
+    	
+    	KursJpaRepository kursRepository = new KursJpaRepository();
+    	kursRepository.setEntityManager(entityManager);
+    	repositories.put(KursJpaRepository.class, kursRepository);
+    	
+    	MitgliedJpaRepository mitgliedRepository = new MitgliedJpaRepository();
+    	mitgliedRepository.setEntityManager(entityManager);
+    	repositories.put(MitgliedJpaRepository.class, mitgliedRepository);
     }
     
-    public void teardown() {
-        if (entityManager != null) {
-            entityManager.close();
-        }
-        if (entityManagerFactory != null) {
-            entityManagerFactory.close();
-        }
-    }
-    
-	public AusbildungRepository ausbildungsRepository() {
-		return (AusbildungRepository)repositories.get(AusbildungRepository.class);
+	public AusbildungJpaRepository ausbildungsRepository() {
+		return (AusbildungJpaRepository)repositories.get(AusbildungJpaRepository.class);
 	}
 
-	public AusrüstungRepository ausrüstungRepository() {
-		return (AusrüstungRepository)repositories.get(AusrüstungRepository.class);
+	public AusrüstungJpaRepository ausrüstungRepository() {
+		return (AusrüstungJpaRepository)repositories.get(AusrüstungJpaRepository.class);
 	}
 
-	public ChargeRepository chargeRepostitory() {
-		return (ChargeRepository)repositories.get(ChargeRepository.class);
+	public ChargeJpaRepository chargeRepostitory() {
+		return (ChargeJpaRepository)repositories.get(ChargeJpaRepository.class);
 	}
 
-	public FeuerwehrautoRepository feuerwehrautoRepository() {
-		return (FeuerwehrautoRepository)repositories.get(FeuerwehrautoRepository.class);
+	public FeuerwehrautoJpaRepository feuerwehrautoRepository() {
+		return (FeuerwehrautoJpaRepository)repositories.get(FeuerwehrautoJpaRepository.class);
 	}
 
-	public FeuerwehrRepository feuerwehrRepository() {
-		return (FeuerwehrRepository)repositories.get(FeuerwehrRepository.class);
+	public FeuerwehrJpaRepository feuerwehrRepository() {
+		return (FeuerwehrJpaRepository)repositories.get(FeuerwehrJpaRepository.class);
 	}
 
-	public GeraetRepository geraeteRepository() {
-		return (GeraetRepository)repositories.get(GeraetRepository.class);
+	public GeraetJpaRepository geraeteRepository() {
+		return (GeraetJpaRepository)repositories.get(GeraetJpaRepository.class);
 	}
 
-	public KommandantRepository kommandantRepository() {
-		return (KommandantRepository)repositories.get(KommandantRepository.class);
+	public KommandantJpaRepository kommandantRepository() {
+		return (KommandantJpaRepository)repositories.get(KommandantJpaRepository.class);
 	}
 
-	public KursRepository kursRepository() {
-		return (KursRepository)repositories.get(KursRepository.class);
+	public KursJpaRepository kursRepository() {
+		return (KursJpaRepository)repositories.get(KursJpaRepository.class);
 	}
 
-	public MitgliedRepository mitgliedRepository() {
-		return (MitgliedRepository)repositories.get(MitgliedRepository.class);
+	public MitgliedJpaRepository mitgliedRepository() {
+		return (MitgliedJpaRepository)repositories.get(MitgliedJpaRepository.class);
 	}
 
 }

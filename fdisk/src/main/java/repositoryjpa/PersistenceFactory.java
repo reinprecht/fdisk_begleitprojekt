@@ -2,21 +2,21 @@ package repositoryjpa;
 
 public interface PersistenceFactory {
 	
-	AusbildungRepository ausbildungsRepository();
+	AusbildungJpaRepository ausbildungsRepository();
 	
-	AusrüstungRepository ausrüstungRepository();
+	AusrüstungJpaRepository ausrüstungRepository();
 	
-	ChargeRepository chargeRepostitory();
+	ChargeJpaRepository chargeRepostitory();
 	
-	FeuerwehrautoRepository feuerwehrautoRepository();
+	FeuerwehrautoJpaRepository feuerwehrautoRepository();
 	
-	FeuerwehrRepository feuerwehrRepository();
+	FeuerwehrJpaRepository feuerwehrRepository();
 	
-	GeraetRepository geraeteRepository();
+	GeraetJpaRepository geraeteRepository();
 	
-	KommandantRepository kommandantRepository();
+	KommandantJpaRepository kommandantRepository();
 	
-	KursRepository kursRepository();
+	KursJpaRepository kursRepository();
 	
-	MitgliedRepository mitgliedRepository();
+	MitgliedJpaRepository mitgliedRepository();
 }

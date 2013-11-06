@@ -1,8 +1,9 @@
 package app;
 
 import repositoryjpa.PersistenceFactory;
+import service.ServiceFactory;
 
-public class ServiceFactoryImpl {
+public class ServiceFactoryImpl implements ServiceFactory {
 	
 	 private PersistenceFactory persistenceFactory;
 
