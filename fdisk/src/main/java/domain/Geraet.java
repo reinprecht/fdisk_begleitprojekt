@@ -2,7 +2,6 @@ package domain;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -13,8 +12,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "gerät")
 public class Geraet  extends BasePersistable {
-	
-    private String bezeichnung;
+
+	private static final long serialVersionUID = 9186456843145873233L;
+	private String bezeichnung;
     private Date pruefungstermin;
     private Feuerwehrauto auto;
 

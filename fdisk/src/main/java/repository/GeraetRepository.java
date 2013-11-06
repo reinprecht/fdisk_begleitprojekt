@@ -1,11 +1,7 @@
 package repository;
 
 import java.util.List;
-
-import javax.persistence.EntityManager;
-
 import org.springframework.data.repository.CrudRepository;
-
 import domain.Geraet;
 
 public interface GeraetRepository extends CrudRepository<Geraet, Long>{

@@ -7,115 +7,116 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "charge")
-public class Charge extends Mitglied{
+public class Charge extends Mitglied {
 
-        private String vorname;
-        private String nachname;
-        private String dienstgrad;
-        private Date geburtsdatum;
-        private String wohnort;
-        private Feuerwehr feuerwehr;
-        private String fachgebiet;
-        private ArrayList<Ausrüstung> ausrüstungen;
-        private ArrayList<Kurs> kurse;
-        
-        public Charge(){
-                this.vorname = "Max";
-                this.nachname = "Musterkommandant";
-                this.dienstgrad = "Musterdienstgrad";
-                this.geburtsdatum = new Date();
-                this.wohnort = "Musterwohnort";
-                this.feuerwehr = new Feuerwehr();
-                this.fachgebiet = "Musterfachgebiet";
-                this.ausrüstungen = new ArrayList<Ausrüstung>();
-                this.kurse = new ArrayList<Kurs>();
-        }
+	private static final long serialVersionUID = -4720638043052019587L;
+	private String vorname;
+	private String nachname;
+	private String dienstgrad;
+	private Date geburtsdatum;
+	private String wohnort;
+	private Feuerwehr feuerwehr;
+	private String fachgebiet;
+	private ArrayList<Ausrüstung> ausrüstungen;
+	private ArrayList<Kurs> kurse;
 
-        public Charge(String vorname, String nachname,
-                        String dienstgrad, Date geburtsdatum, String wohnort,
-                        Feuerwehr feuerwehr, String fachgebiet, ArrayList<Ausrüstung> ausrüstungen,
-                        ArrayList<Kurs> kurse) {
-                super();
-                this.vorname = vorname;
-                this.nachname = nachname;
-                this.dienstgrad = dienstgrad;
-                this.geburtsdatum = geburtsdatum;
-                this.wohnort = wohnort;
-                this.feuerwehr = feuerwehr;
-                this.fachgebiet = fachgebiet;
-                this.ausrüstungen = ausrüstungen;
-                this.kurse = kurse;
-        }
+	public Charge() {
+		this.vorname = "Max";
+		this.nachname = "Musterkommandant";
+		this.dienstgrad = "Musterdienstgrad";
+		this.geburtsdatum = new Date();
+		this.wohnort = "Musterwohnort";
+		this.feuerwehr = new Feuerwehr();
+		this.fachgebiet = "Musterfachgebiet";
+		this.ausrüstungen = new ArrayList<Ausrüstung>();
+		this.kurse = new ArrayList<Kurs>();
+	}
 
-        public String getVorname() {
-                return vorname;
-        }
+	public Charge(String vorname, String nachname, String dienstgrad,
+			Date geburtsdatum, String wohnort, Feuerwehr feuerwehr,
+			String fachgebiet, ArrayList<Ausrüstung> ausrüstungen,
+			ArrayList<Kurs> kurse) {
+		super();
+		this.vorname = vorname;
+		this.nachname = nachname;
+		this.dienstgrad = dienstgrad;
+		this.geburtsdatum = geburtsdatum;
+		this.wohnort = wohnort;
+		this.feuerwehr = feuerwehr;
+		this.fachgebiet = fachgebiet;
+		this.ausrüstungen = ausrüstungen;
+		this.kurse = kurse;
+	}
 
-        public void setVorname(String vorname) {
-                this.vorname = vorname;
-        }
+	public String getVorname() {
+		return vorname;
+	}
 
-        public String getNachname() {
-                return nachname;
-        }
+	public void setVorname(String vorname) {
+		this.vorname = vorname;
+	}
 
-        public void setNachname(String nachname) {
-                this.nachname = nachname;
-        }
+	public String getNachname() {
+		return nachname;
+	}
 
-        public String getDienstgrad() {
-                return dienstgrad;
-        }
+	public void setNachname(String nachname) {
+		this.nachname = nachname;
+	}
 
-        public void setDienstgrad(String dienstgrad) {
-                this.dienstgrad = dienstgrad;
-        }
+	public String getDienstgrad() {
+		return dienstgrad;
+	}
 
-        public Date getGeburtsdatum() {
-                return geburtsdatum;
-        }
+	public void setDienstgrad(String dienstgrad) {
+		this.dienstgrad = dienstgrad;
+	}
 
-        public void setGeburtsdatum(Date geburtsdatum) {
-                this.geburtsdatum = geburtsdatum;
-        }
+	public Date getGeburtsdatum() {
+		return geburtsdatum;
+	}
 
-        public String getWohnort() {
-                return wohnort;
-        }
+	public void setGeburtsdatum(Date geburtsdatum) {
+		this.geburtsdatum = geburtsdatum;
+	}
 
-        public void setWohnort(String wohnort) {
-                this.wohnort = wohnort;
-        }
+	public String getWohnort() {
+		return wohnort;
+	}
 
-        public Feuerwehr getFeuerwehr() {
-                return feuerwehr;
-        }
+	public void setWohnort(String wohnort) {
+		this.wohnort = wohnort;
+	}
 
-        public void setFeuerwehr(Feuerwehr feuerwehr) {
-                this.feuerwehr = feuerwehr;
-        }
+	public Feuerwehr getFeuerwehr() {
+		return feuerwehr;
+	}
 
-        public String getFachgebiet() {
-                return fachgebiet;
-        }
+	public void setFeuerwehr(Feuerwehr feuerwehr) {
+		this.feuerwehr = feuerwehr;
+	}
 
-        public void setFachgebiet(String fachgebiet) {
-                this.fachgebiet = fachgebiet;
-        }
+	public String getFachgebiet() {
+		return fachgebiet;
+	}
 
-        public ArrayList<Ausrüstung> getAusrüstungen() {
-                return ausrüstungen;
-        }
+	public void setFachgebiet(String fachgebiet) {
+		this.fachgebiet = fachgebiet;
+	}
 
-        public void setAusrüstungen(ArrayList<Ausrüstung> ausrüstungen) {
-                this.ausrüstungen = ausrüstungen;
-        }
+	public ArrayList<Ausrüstung> getAusrüstungen() {
+		return ausrüstungen;
+	}
 
-        public ArrayList<Kurs> getKurse() {
-                return kurse;
-        }
+	public void setAusrüstungen(ArrayList<Ausrüstung> ausrüstungen) {
+		this.ausrüstungen = ausrüstungen;
+	}
 
-        public void setKurse(ArrayList<Kurs> kurse) {
-                this.kurse = kurse;
-        }
+	public ArrayList<Kurs> getKurse() {
+		return kurse;
+	}
+
+	public void setKurse(ArrayList<Kurs> kurse) {
+		this.kurse = kurse;
+	}
 }
