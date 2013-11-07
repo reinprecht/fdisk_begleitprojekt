@@ -17,7 +17,7 @@ public class Charge extends Mitglied {
 	private String wohnort;
 	private Feuerwehr feuerwehr;
 	private String fachgebiet;
-	private ArrayList<Ausrüstung> ausrüstungen;
+	private ArrayList<Ausruestung> ausruestungen;
 	private ArrayList<Kurs> kurse;
 
 	public Charge() {
@@ -28,13 +28,13 @@ public class Charge extends Mitglied {
 		this.wohnort = "Musterwohnort";
 		this.feuerwehr = new Feuerwehr();
 		this.fachgebiet = "Musterfachgebiet";
-		this.ausrüstungen = new ArrayList<Ausrüstung>();
+		this.ausruestungen = new ArrayList<Ausruestung>();
 		this.kurse = new ArrayList<Kurs>();
 	}
 
 	public Charge(String vorname, String nachname, String dienstgrad,
 			Date geburtsdatum, String wohnort, Feuerwehr feuerwehr,
-			String fachgebiet, ArrayList<Ausrüstung> ausrüstungen,
+			String fachgebiet, ArrayList<Ausruestung> ausruestungen,
 			ArrayList<Kurs> kurse) {
 		super();
 		this.vorname = vorname;
@@ -44,7 +44,7 @@ public class Charge extends Mitglied {
 		this.wohnort = wohnort;
 		this.feuerwehr = feuerwehr;
 		this.fachgebiet = fachgebiet;
-		this.ausrüstungen = ausrüstungen;
+		this.ausruestungen = ausruestungen;
 		this.kurse = kurse;
 	}
 
@@ -104,12 +104,12 @@ public class Charge extends Mitglied {
 		this.fachgebiet = fachgebiet;
 	}
 
-	public ArrayList<Ausrüstung> getAusrüstungen() {
-		return ausrüstungen;
+	public ArrayList<Ausruestung> getAusruestungen() {
+		return ausruestungen;
 	}
 
-	public void setAusrüstungen(ArrayList<Ausrüstung> ausrüstungen) {
-		this.ausrüstungen = ausrüstungen;
+	public void setAusruestungen(ArrayList<Ausruestung> ausruestungen) {
+		this.ausruestungen = ausruestungen;
 	}
 
 	public ArrayList<Kurs> getKurse() {

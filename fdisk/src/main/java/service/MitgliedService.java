@@ -5,7 +5,7 @@ import java.util.Date;
 
 import org.springframework.stereotype.Service;
 
-import domain.Ausrüstung;
+import domain.Ausruestung;
 import domain.Feuerwehr;
 import domain.Kurs;
 import domain.Mitglied;
@@ -19,9 +19,9 @@ public class MitgliedService {
 	
 	public void createNewMitglied(String vorname, String nachname, String dienstgrad,
 			Date geburtsdatum, String wohnort, Feuerwehr feuerwehr,
-			ArrayList<Ausrüstung> ausrüstungen, ArrayList<Kurs> kurse){
+			ArrayList<Ausruestung> ausruestungen, ArrayList<Kurs> kurse){
 		Mitglied mitglied = new Mitglied(vorname, nachname, dienstgrad, geburtsdatum,
-				wohnort, feuerwehr, ausrüstungen, kurse);
+				wohnort, feuerwehr, ausruestungen, kurse);
 		mitgliedJpaRepository.persist(mitglied);
 	}
 }

@@ -4,7 +4,7 @@ public interface PersistenceFactory {
 	
 	AusbildungJpaRepository ausbildungsRepository();
 	
-	AusrüstungJpaRepository ausrüstungRepository();
+	AusruestungJpaRepository ausruestungRepository();
 	
 	BerechtigungJpaRepository berechtigungRepository();
 	

@@ -16,7 +16,7 @@ public class Mitglied extends BasePersistable {
 	private Date geburtsdatum;
 	private String wohnort;
 	private Feuerwehr feuerwehr;
-	private ArrayList<Ausrüstung> ausrüstungen;
+	private ArrayList<Ausruestung> ausruestungen;
 	private ArrayList<Kurs> kurse;
 
 	public Mitglied() {
@@ -26,13 +26,13 @@ public class Mitglied extends BasePersistable {
 		this.geburtsdatum = new Date();
 		this.wohnort = "Musterwohnort";
 		this.feuerwehr = new Feuerwehr();
-		this.ausrüstungen = new ArrayList<Ausrüstung>();
+		this.ausruestungen = new ArrayList<Ausruestung>();
 		this.kurse = new ArrayList<Kurs>();
 	}
 
 	public Mitglied(String vorname, String nachname, String dienstgrad,
 			Date geburtsdatum, String wohnort, Feuerwehr feuerwehr,
-			ArrayList<Ausrüstung> ausrüstungen, ArrayList<Kurs> kurse) {
+			ArrayList<Ausruestung> ausruestungen, ArrayList<Kurs> kurse) {
 		super();
 		this.vorname = vorname;
 		this.nachname = nachname;
@@ -40,7 +40,7 @@ public class Mitglied extends BasePersistable {
 		this.geburtsdatum = geburtsdatum;
 		this.wohnort = wohnort;
 		this.feuerwehr = feuerwehr;
-		this.ausrüstungen = ausrüstungen;
+		this.ausruestungen = ausruestungen;
 		this.kurse = kurse;
 	}
 
@@ -92,12 +92,12 @@ public class Mitglied extends BasePersistable {
 		this.feuerwehr = feuerwehr;
 	}
 
-	public ArrayList<Ausrüstung> getAusrüstungen() {
-		return ausrüstungen;
+	public ArrayList<Ausruestung> getAusruestungen() {
+		return ausruestungen;
 	}
 
-	public void setAusrüstungen(ArrayList<Ausrüstung> ausrüstungen) {
-		this.ausrüstungen = ausrüstungen;
+	public void setAusruestungen(ArrayList<Ausruestung> ausruestungen) {
+		this.ausruestungen = ausruestungen;
 	}
 
 	public ArrayList<Kurs> getKurse() {

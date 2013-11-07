@@ -11,8 +11,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "ausrüstung")
-public class Ausrüstung  extends BasePersistable {
+@Table(name = "ausrï¿½stung")
+public class Ausruestung  extends BasePersistable {
 
 	private static final long serialVersionUID = -5590879199470794514L;
 	
@@ -30,7 +30,7 @@ public class Ausrüstung  extends BasePersistable {
 	@Column(name = "datum_ausgegeben", nullable = false)
 	private Date ausgegeben;
 
-	public Ausrüstung(String bezeichnung, Mitglied benutzer,
+	public Ausruestung(String bezeichnung, Mitglied benutzer,
 			Date ausgegeben) {
 		super();
 		this.bezeichnung = bezeichnung;
@@ -38,8 +38,8 @@ public class Ausrüstung  extends BasePersistable {
 		this.ausgegeben = ausgegeben;
 	}
 
-	public Ausrüstung() {
-		bezeichnung = "Testausrüstung";
+	public Ausruestung() {
+		bezeichnung = "Testausrï¿½stung";
 		benutzer = new Mitglied();
 		ausgegeben = new Date();
 	}

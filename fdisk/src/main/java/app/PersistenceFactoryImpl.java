@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 import javax.persistence.EntityManager;
 import repositoryjpa.AusbildungJpaRepository;
-import repositoryjpa.AusrüstungJpaRepository;
+import repositoryjpa.AusruestungJpaRepository;
 import repositoryjpa.BerechtigungJpaRepository;
 import repositoryjpa.ChargeJpaRepository;
 import repositoryjpa.FeuerwehrJpaRepository;
@@ -26,9 +26,9 @@ public class PersistenceFactoryImpl implements PersistenceFactory {
     	ausbildungJPARepository.setEntityManager(entityManager);
     	repositories.put(AusbildungJpaRepository.class, ausbildungJPARepository);
     	
-    	AusrüstungJpaRepository ausrüstungJPARepository = new AusrüstungJpaRepository();
-    	ausrüstungJPARepository.setEntityManager(entityManager);
-    	repositories.put(AusrüstungJpaRepository.class, ausrüstungJPARepository);
+    	AusruestungJpaRepository ausruestungJPARepository = new AusruestungJpaRepository();
+    	ausruestungJPARepository.setEntityManager(entityManager);
+    	repositories.put(AusruestungJpaRepository.class, ausruestungJPARepository);
     	
     	BerechtigungJpaRepository berechtigungRepository = new BerechtigungJpaRepository();
     	berechtigungRepository.setEntityManager(entityManager);
@@ -71,8 +71,8 @@ public class PersistenceFactoryImpl implements PersistenceFactory {
 		return (AusbildungJpaRepository)repositories.get(AusbildungJpaRepository.class);
 	}
 
-	public AusrüstungJpaRepository ausrüstungRepository() {
-		return (AusrüstungJpaRepository)repositories.get(AusrüstungJpaRepository.class);
+	public AusruestungJpaRepository ausruestungRepository() {
+		return (AusruestungJpaRepository)repositories.get(AusruestungJpaRepository.class);
 	}
 	
 	public BerechtigungJpaRepository berechtigungRepository() {

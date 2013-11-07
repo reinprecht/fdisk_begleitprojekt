@@ -9,23 +9,22 @@ import org.junit.runners.Parameterized;
 
 @RunWith(value = Parameterized.class)
 public class BerechtigungConstructorTest {
-
-	private String berechtigung;
+	private String name;
 	
-	public BerechtigungConstructorTest(String berechtigung){
-		this.berechtigung = berechtigung;
+	public BerechtigungConstructorTest(String name){
+		this.name = name;
 	}
 	
 	@Parameterized.Parameters
     public static Collection<Object[]> data() {
         Object[][] data = new Object[][]{ //
                 {null}, //
-                {"test"}};
+                {"bezeichnung"}};
         return Arrays.asList(data);
     }
     
     @Test(expected = IllegalArgumentException.class)
     public void whenCreatingWithNullArguments() {
-        new Berechtigung(berechtigung);
+        new Berechtigung(name);
     }
 }

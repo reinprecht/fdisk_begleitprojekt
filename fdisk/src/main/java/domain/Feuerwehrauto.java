@@ -15,22 +15,22 @@ public class Feuerwehrauto extends BasePersistable {
 	private String typ;
 	private int sitzplaetze;
 	private Feuerwehr feuerwehr;
-	private ArrayList<Geraet> geräte;
+	private ArrayList<Geraet> geraete;
 
 	public Feuerwehrauto(String typ, int sitzplaetze, Feuerwehr feuerwehr,
-			ArrayList<Geraet> geräte) {
+			ArrayList<Geraet> geraete) {
 		super();
 		this.typ = typ;
 		this.sitzplaetze = sitzplaetze;
 		this.feuerwehr = feuerwehr;
-		this.geräte = geräte;
+		this.geraete = geraete;
 	}
 
 	public Feuerwehrauto() {
 		this.typ = "Mustertyp";
 		this.sitzplaetze = 0;
 		this.feuerwehr = new Feuerwehr();
-		this.geräte = new ArrayList<Geraet>();
+		this.geraete = new ArrayList<Geraet>();
 	}
 
 	public String getTyp() {
@@ -57,12 +57,12 @@ public class Feuerwehrauto extends BasePersistable {
 		this.feuerwehr = feuerwehr;
 	}
 
-	public ArrayList<Geraet> getGeräte() {
-		return geräte;
+	public ArrayList<Geraet> getGeraete() {
+		return geraete;
 	}
 
-	public void setGeräte(ArrayList<Geraet> geräte) {
-		this.geräte = geräte;
+	public void setGeraete(ArrayList<Geraet> geraete) {
+		this.geraete = geraete;
 	}
 
 }
