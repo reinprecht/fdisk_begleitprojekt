@@ -6,6 +6,8 @@ public interface PersistenceFactory {
 	
 	AusrüstungJpaRepository ausrüstungRepository();
 	
+	BerechtigungJpaRepository berechtigungRepository();
+	
 	ChargeJpaRepository chargeRepostitory();
 	
 	FeuerwehrautoJpaRepository feuerwehrautoRepository();
@@ -19,4 +21,6 @@ public interface PersistenceFactory {
 	KursJpaRepository kursRepository();
 	
 	MitgliedJpaRepository mitgliedRepository();
+	
+	UserJpaRepository userRepository();
 }

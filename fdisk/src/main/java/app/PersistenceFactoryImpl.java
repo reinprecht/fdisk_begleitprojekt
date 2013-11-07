@@ -5,6 +5,7 @@ import java.util.HashMap;
 import javax.persistence.EntityManager;
 import repositoryjpa.AusbildungJpaRepository;
 import repositoryjpa.AusrüstungJpaRepository;
+import repositoryjpa.BerechtigungJpaRepository;
 import repositoryjpa.ChargeJpaRepository;
 import repositoryjpa.FeuerwehrJpaRepository;
 import repositoryjpa.FeuerwehrautoJpaRepository;
@@ -14,6 +15,7 @@ import repositoryjpa.KommandantJpaRepository;
 import repositoryjpa.KursJpaRepository;
 import repositoryjpa.MitgliedJpaRepository;
 import repositoryjpa.PersistenceFactory;
+import repositoryjpa.UserJpaRepository;
 
 public class PersistenceFactoryImpl implements PersistenceFactory {
 
@@ -28,13 +30,17 @@ public class PersistenceFactoryImpl implements PersistenceFactory {
     	ausrüstungJPARepository.setEntityManager(entityManager);
     	repositories.put(AusrüstungJpaRepository.class, ausrüstungJPARepository);
     	
-    	ChargeJpaRepository chargeJPARepository = new ChargeJpaRepository();
-    	chargeJPARepository.setEntityManager(entityManager);
-    	repositories.put(ChargeJpaRepository.class, chargeJPARepository);
+    	BerechtigungJpaRepository berechtigungRepository = new BerechtigungJpaRepository();
+    	berechtigungRepository.setEntityManager(entityManager);
+    	repositories.put(BerechtigungJpaRepository.class, berechtigungRepository);
     	
-    	FeuerwehrJpaRepository feuerwehrJPARepository = new FeuerwehrJpaRepository();
-    	feuerwehrJPARepository.setEntityManager(entityManager);
-    	repositories.put(FeuerwehrJpaRepository.class, feuerwehrJPARepository);
+    	ChargeJpaRepository chargeRepository = new ChargeJpaRepository();
+    	chargeRepository.setEntityManager(entityManager);
+    	repositories.put(ChargeJpaRepository.class, chargeRepository);
+    	
+    	FeuerwehrJpaRepository feuerwehrRepository = new FeuerwehrJpaRepository();
+    	feuerwehrRepository.setEntityManager(entityManager);
+    	repositories.put(FeuerwehrJpaRepository.class, feuerwehrRepository);
     	
     	FeuerwehrautoJpaRepository feuerwehrautoRepository = new FeuerwehrautoJpaRepository();
     	feuerwehrautoRepository.setEntityManager(entityManager);
@@ -55,6 +61,10 @@ public class PersistenceFactoryImpl implements PersistenceFactory {
     	MitgliedJpaRepository mitgliedRepository = new MitgliedJpaRepository();
     	mitgliedRepository.setEntityManager(entityManager);
     	repositories.put(MitgliedJpaRepository.class, mitgliedRepository);
+    	
+    	UserJpaRepository userRepository = new UserJpaRepository();
+    	userRepository.setEntityManager(entityManager);
+    	repositories.put(UserJpaRepository.class, userRepository);
     }
     
 	public AusbildungJpaRepository ausbildungsRepository() {
@@ -63,6 +73,10 @@ public class PersistenceFactoryImpl implements PersistenceFactory {
 
 	public AusrüstungJpaRepository ausrüstungRepository() {
 		return (AusrüstungJpaRepository)repositories.get(AusrüstungJpaRepository.class);
+	}
+	
+	public BerechtigungJpaRepository berechtigungRepository() {
+		return (BerechtigungJpaRepository)repositories.get(BerechtigungJpaRepository.class);
 	}
 
 	public ChargeJpaRepository chargeRepostitory() {
@@ -92,5 +106,8 @@ public class PersistenceFactoryImpl implements PersistenceFactory {
 	public MitgliedJpaRepository mitgliedRepository() {
 		return (MitgliedJpaRepository)repositories.get(MitgliedJpaRepository.class);
 	}
-
+	
+	public UserJpaRepository userRepository(){
+		return (UserJpaRepository)repositories.get(UserJpaRepository.class);
+	}
 }
