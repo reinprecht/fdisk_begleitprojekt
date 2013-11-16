@@ -19,7 +19,7 @@ public class BerechtigungConstructorTest {
     public static Collection<Object[]> data() {
         Object[][] data = new Object[][]{ //
                 {null}, //
-                {"bezeichnung"}};
+                {""}};
         return Arrays.asList(data);
     }
     
