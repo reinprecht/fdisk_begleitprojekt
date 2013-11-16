@@ -2,6 +2,7 @@ package domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import help.EnsureService;
 
 @Entity
 @Table(name = "berechtigung")
@@ -12,6 +13,8 @@ public class Berechtigung extends BasePersistable {
 	
 	public Berechtigung(String berechtigung) {
 		super();
+		EnsureService.notEmpty("berechtigung", berechtigung);
+		EnsureService.notNull("berechtigung", berechtigung);
 		this.berechtigung = berechtigung;
 	}
 	

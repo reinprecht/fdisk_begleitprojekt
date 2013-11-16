@@ -2,9 +2,14 @@ package domain;
 
 import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import help.EnsureService;
 
 @Entity
 @Table(name = "ausbildung")
@@ -33,6 +38,7 @@ public class Ausbildung extends BasePersistable {
 	public Ausbildung(String bezeichnung, String kurz_bezeichnung,
 			Feuerwehr ort, Date datum) {
 		super();
+		EnsureService.notEmpty("bezeichnung", bezeichnung);
 		this.bezeichnung = bezeichnung;
 		this.kurz_bezeichnung = kurz_bezeichnung;
 		this.ort = ort;
