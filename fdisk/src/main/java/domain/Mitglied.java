@@ -1,38 +1,65 @@
 package domain;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "mitglied")
 public class Mitglied extends BasePersistable {
 
 	private static final long serialVersionUID = -8246771010077369302L;
+	
+	@Size(max = 15)
+	@NotNull
+	@Column(name = "vorname", nullable = false, length = 15)
 	private String vorname;
+	
+	@Size(max = 20)
+	@NotNull
+	@Column(name = "nachname", nullable = false, length = 20)
 	private String nachname;
+	
+	@Size(max = 3)
+	@NotNull
+	@Column(name = "dienstgrad", nullable = false, length = 3)
 	private String dienstgrad;
+	
+	@Temporal(TemporalType.DATE)
+	@NotNull
+	@Column(name = "gebdat", nullable = false)
 	private Date geburtsdatum;
+	
+	@Size(max = 15)
+	@NotNull
+	@Column(name = "wohnort", nullable = false, length = 15)
 	private String wohnort;
+	
+	@ManyToOne
 	private Feuerwehr feuerwehr;
-	private ArrayList<Ausruestung> ausruestungen;
-	private ArrayList<Kurs> kurse;
+	
+	@OneToMany
+	private Collection<Ausruestung> ausruestungen;
+	
+	@OneToMany
+	private Collection<Kurs> kurse;
 
 	public Mitglied() {
-		this.vorname = "Max";
-		this.nachname = "Mustermann";
-		this.dienstgrad = "Musterdienstgrad";
-		this.geburtsdatum = new Date();
-		this.wohnort = "Musterwohnort";
-		this.feuerwehr = new Feuerwehr();
-		this.ausruestungen = new ArrayList<Ausruestung>();
-		this.kurse = new ArrayList<Kurs>();
+		//for jpa
 	}
 
 	public Mitglied(String vorname, String nachname, String dienstgrad,
 			Date geburtsdatum, String wohnort, Feuerwehr feuerwehr,
-			ArrayList<Ausruestung> ausruestungen, ArrayList<Kurs> kurse) {
+			Collection<Ausruestung> ausruestungen, Collection<Kurs> kurse) {
 		super();
 		this.vorname = vorname;
 		this.nachname = nachname;
@@ -92,19 +119,19 @@ public class Mitglied extends BasePersistable {
 		this.feuerwehr = feuerwehr;
 	}
 
-	public ArrayList<Ausruestung> getAusruestungen() {
+	public Collection<Ausruestung> getAusruestungen() {
 		return ausruestungen;
 	}
 
-	public void setAusruestungen(ArrayList<Ausruestung> ausruestungen) {
+	public void setAusruestungen(Collection<Ausruestung> ausruestungen) {
 		this.ausruestungen = ausruestungen;
 	}
 
-	public ArrayList<Kurs> getKurse() {
+	public Collection<Kurs> getKurse() {
 		return kurse;
 	}
 
-	public void setKurse(ArrayList<Kurs> kurse) {
+	public void setKurse(Collection<Kurs> kurse) {
 		this.kurse = kurse;
 	}
 }

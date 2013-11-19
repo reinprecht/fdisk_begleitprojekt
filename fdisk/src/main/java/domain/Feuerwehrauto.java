@@ -1,8 +1,15 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Collection;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * User: Stefan Date: 12.09.13 Time: 17:45
@@ -12,10 +19,21 @@ import javax.persistence.Table;
 public class Feuerwehrauto extends BasePersistable {
 
 	private static final long serialVersionUID = -5699493983403524197L;
+	
+	@Size(max = 5)
+	@NotNull
+	@Column(name = "typ", nullable = false, length = 5)
 	private String typ;
+	
+	@NotNull
+	@Column(name = "plaetze", nullable = false)
 	private int sitzplaetze;
+	
+	@ManyToOne
 	private Feuerwehr feuerwehr;
-	private ArrayList<Geraet> geraete;
+	
+	@OneToMany
+	private Collection<Geraet> geraete;
 
 	public Feuerwehrauto(String typ, int sitzplaetze, Feuerwehr feuerwehr,
 			ArrayList<Geraet> geraete) {
@@ -27,10 +45,6 @@ public class Feuerwehrauto extends BasePersistable {
 	}
 
 	public Feuerwehrauto() {
-		this.typ = "Mustertyp";
-		this.sitzplaetze = 0;
-		this.feuerwehr = new Feuerwehr();
-		this.geraete = new ArrayList<Geraet>();
 	}
 
 	public String getTyp() {
@@ -57,11 +71,11 @@ public class Feuerwehrauto extends BasePersistable {
 		this.feuerwehr = feuerwehr;
 	}
 
-	public ArrayList<Geraet> getGeraete() {
+	public Collection<Geraet> getGeraete() {
 		return geraete;
 	}
 
-	public void setGeraete(ArrayList<Geraet> geraete) {
+	public void setGeraete(Collection<Geraet> geraete) {
 		this.geraete = geraete;
 	}
 

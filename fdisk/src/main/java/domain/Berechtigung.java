@@ -1,7 +1,11 @@
 package domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 import help.EnsureService;
 
 @Entity
@@ -9,6 +13,10 @@ import help.EnsureService;
 public class Berechtigung extends BasePersistable {
 
 	private static final long serialVersionUID = 5707680569424613530L;
+	
+	@Size(max = 30)
+	@NotNull
+	@Column(name = "berechtigung", nullable = false, length = 30)
 	private String berechtigung;
 	
 	public Berechtigung(String berechtigung) {
@@ -19,8 +27,7 @@ public class Berechtigung extends BasePersistable {
 	}
 	
 	public Berechtigung() {
-		super();
-		this.berechtigung = "Testberechtigung";
+		//for jpa
 	}
 
 	public String getBerechtigung() {

@@ -1,7 +1,8 @@
 package domain;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -10,101 +11,27 @@ import javax.persistence.Table;
 public class Kommandant extends Mitglied {
 
 	private static final long serialVersionUID = -9031056576232458294L;
-	private String vorname;
-	private String nachname;
-	private String dienstgrad;
-	private Date geburtsdatum;
-	private String wohnort;
-	private Feuerwehr feuerwehr;
-	private ArrayList<Ausruestung> ausruestungen;
-	private ArrayList<Kurs> kurse;
+	
+	private Feuerwehr kommandant_feuerwehr;
 
 	public Kommandant() {
-		this.vorname = "Max";
-		this.nachname = "Musterkommandant";
-		this.dienstgrad = "Musterdienstgrad";
-		this.geburtsdatum = new Date();
-		this.wohnort = "Musterwohnort";
-		this.feuerwehr = new Feuerwehr();
-		this.ausruestungen = new ArrayList<Ausruestung>();
-		this.kurse = new ArrayList<Kurs>();
+		//for jpa
 	}
 
 	public Kommandant(String vorname, String nachname, String dienstgrad,
 			Date geburtsdatum, String wohnort, Feuerwehr feuerwehr,
-			ArrayList<Ausruestung> ausruestungen, ArrayList<Kurs> kurse) {
-		super();
-		this.vorname = vorname;
-		this.nachname = nachname;
-		this.dienstgrad = dienstgrad;
-		this.geburtsdatum = geburtsdatum;
-		this.wohnort = wohnort;
-		this.feuerwehr = feuerwehr;
-		this.ausruestungen = ausruestungen;
-		this.kurse = kurse;
+			Collection<Ausruestung> ausruestungen, Collection<Kurs> kurse,
+			Feuerwehr kommandant_feuerwehr) {
+		super(vorname, nachname, dienstgrad, geburtsdatum, wohnort,
+				feuerwehr, ausruestungen, kurse);
+		this.setKommandant_feuerwehr(kommandant_feuerwehr);
 	}
 
-	public String getVorname() {
-		return vorname;
+	public Feuerwehr getKommandant_feuerwehr() {
+		return kommandant_feuerwehr;
 	}
 
-	public void setVorname(String vorname) {
-		this.vorname = vorname;
-	}
-
-	public String getNachname() {
-		return nachname;
-	}
-
-	public void setNachname(String nachname) {
-		this.nachname = nachname;
-	}
-
-	public String getDienstgrad() {
-		return dienstgrad;
-	}
-
-	public void setDienstgrad(String dienstgrad) {
-		this.dienstgrad = dienstgrad;
-	}
-
-	public Date getGeburtsdatum() {
-		return geburtsdatum;
-	}
-
-	public void setGeburtsdatum(Date geburtsdatum) {
-		this.geburtsdatum = geburtsdatum;
-	}
-
-	public String getWohnort() {
-		return wohnort;
-	}
-
-	public void setWohnort(String wohnort) {
-		this.wohnort = wohnort;
-	}
-
-	public Feuerwehr getFeuerwehr() {
-		return feuerwehr;
-	}
-
-	public void setFeuerwehr(Feuerwehr feuerwehr) {
-		this.feuerwehr = feuerwehr;
-	}
-
-	public ArrayList<Ausruestung> getAusruestungen() {
-		return ausruestungen;
-	}
-
-	public void setAusruestungen(ArrayList<Ausruestung> ausruestungen) {
-		this.ausruestungen = ausruestungen;
-	}
-
-	public ArrayList<Kurs> getKurse() {
-		return kurse;
-	}
-
-	public void setKurse(ArrayList<Kurs> kurse) {
-		this.kurse = kurse;
+	public void setKommandant_feuerwehr(Feuerwehr kommandant_feuerwehr) {
+		this.kommandant_feuerwehr = kommandant_feuerwehr;
 	}
 }

@@ -4,9 +4,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import help.EnsureService;
@@ -27,7 +29,8 @@ public class Ausbildung extends BasePersistable {
 	@Column(name = "kurzbezeichnung", nullable = false, length = 3)
 	private String kurz_bezeichnung;
 	
-	@Column(name = "ort", nullable = false)
+	@ManyToOne
+	@Transient
 	private Feuerwehr ort;
 	
 	@Temporal(TemporalType.DATE)

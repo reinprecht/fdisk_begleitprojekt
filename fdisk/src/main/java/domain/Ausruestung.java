@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -11,7 +12,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "ausr�stung")
+@Table(name = "ausruestung")
 public class Ausruestung  extends BasePersistable {
 
 	private static final long serialVersionUID = -5590879199470794514L;
@@ -21,8 +22,7 @@ public class Ausruestung  extends BasePersistable {
 	@Column(name = "bezeichnung", nullable = false, length = 30)
 	private String bezeichnung;
 	
-	@NotNull
-	@Column(name = "benutzer", nullable = false)
+	@ManyToOne
 	private Mitglied benutzer;
 	
 	@Temporal(TemporalType.DATE)
@@ -39,9 +39,7 @@ public class Ausruestung  extends BasePersistable {
 	}
 
 	public Ausruestung() {
-		bezeichnung = "Testausr�stung";
-		benutzer = new Mitglied();
-		ausgegeben = new Date();
+		//for jpa
 	}
 
 	public String getBezeichnung() {

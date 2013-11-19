@@ -1,8 +1,15 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Collection;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * User: Stefan Date: 01.10.13 Time: 09:11
@@ -12,52 +19,64 @@ import javax.persistence.Table;
 public class Feuerwehr extends BasePersistable {
 
 	private static final long serialVersionUID = 4011028919765324284L;
-	private String Ort;
-	private ArrayList<Mitglied> mitglieder;
-	private ArrayList<Charge> chargen;
+	
+	@Size(max = 20)
+	@NotNull
+	@Column(name = "ort", nullable = false, length = 20)
+	private String ort;
+	
+	@OneToMany
+	private Collection<Mitglied> mitglieder;
+	
+	@OneToMany
+	private Collection<Charge> chargen;
+	
+	@ManyToOne
 	private Kommandant kommandant;
-	private ArrayList<Feuerwehrauto> autos;
+	
+	@OneToMany
+	private Collection<Feuerwehrauto> autos;
+	
+	@OneToMany
+	private Collection<Ausbildung> ausbildungen;
 
 	public Feuerwehr() {
-		this.Ort = "Musterort";
-		this.mitglieder = new ArrayList<Mitglied>();
-		this.chargen = new ArrayList<Charge>();
-		this.kommandant = new Kommandant();
-		this.autos = new ArrayList<Feuerwehrauto>();
+		//for jpa
 	}
 
 	public Feuerwehr(String ort, ArrayList<Mitglied> mitglieder,
 			ArrayList<Charge> chargen, Kommandant kommandant,
-			ArrayList<Feuerwehrauto> autos) {
+			ArrayList<Feuerwehrauto> autos, ArrayList<Ausbildung> ausbildungen) {
 		super();
-		Ort = ort;
+		this.ort = ort;
 		this.mitglieder = mitglieder;
 		this.chargen = chargen;
 		this.kommandant = kommandant;
 		this.autos = autos;
+		this.ausbildungen = ausbildungen;
 	}
 
 	public String getOrt() {
-		return Ort;
+		return ort;
 	}
 
 	public void setOrt(String ort) {
-		Ort = ort;
+		this.ort = ort;
 	}
 
-	public ArrayList<Mitglied> getMitglieder() {
+	public Collection<Mitglied> getMitglieder() {
 		return mitglieder;
 	}
 
-	public void setMitglieder(ArrayList<Mitglied> mitglieder) {
+	public void setMitglieder(Collection<Mitglied> mitglieder) {
 		this.mitglieder = mitglieder;
 	}
 
-	public ArrayList<Charge> getChargen() {
+	public Collection<Charge> getChargen() {
 		return chargen;
 	}
 
-	public void setChargen(ArrayList<Charge> chargen) {
+	public void setChargen(Collection<Charge> chargen) {
 		this.chargen = chargen;
 	}
 
@@ -69,11 +88,19 @@ public class Feuerwehr extends BasePersistable {
 		this.kommandant = kommandant;
 	}
 
-	public ArrayList<Feuerwehrauto> getAutos() {
+	public Collection<Feuerwehrauto> getAutos() {
 		return autos;
 	}
 
-	public void setAutos(ArrayList<Feuerwehrauto> autos) {
+	public void setAutos(Collection<Feuerwehrauto> autos) {
 		this.autos = autos;
+	}
+	
+	public Collection<Ausbildung> getAusbildungen() {
+		return ausbildungen;
+	}
+
+	public void setAusbildungen(Collection<Ausbildung> ausbildungen) {
+		this.ausbildungen = ausbildungen;
 	}
 }

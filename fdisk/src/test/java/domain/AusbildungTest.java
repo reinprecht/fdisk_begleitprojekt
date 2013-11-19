@@ -1,5 +1,8 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -32,7 +35,17 @@ public class AusbildungTest {
 
 	@Test
 	public void testMe() {
-		Ausbildung aus = new Ausbildung();
+		Feuerwehr f = new Feuerwehr("PKDF",
+				new ArrayList<Mitglied>(),
+				new ArrayList<Charge>(), null,
+				new ArrayList<Feuerwehrauto>(), new ArrayList<Ausbildung>());
+		Kommandant k = new Kommandant("Stefan", "Reinprecht", "FM",
+				new Date(), "PKDF", f,
+				new ArrayList<Ausruestung>(), new ArrayList<Kurs>(),
+				f);
+		f.setKommandant(k);
+		Ausbildung aus = new Ausbildung("TestAusbildung",
+				"TA", f, new Date());
 		entityManager.persist(aus);
 	}
 }
