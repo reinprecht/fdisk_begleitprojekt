@@ -26,7 +26,12 @@ public class AusbildungConstructorTest {
 	    @Parameterized.Parameters
 	    public static Collection<Object[]> data() {
 	        Object[][] data = new Object[][]{ //
-	                {"Test", "T", new Feuerwehr(), new Date()}
+	                {null, "T", new Feuerwehr(), new Date()},
+	                {"", "T", new Feuerwehr(), new Date()},
+	                {"Test", null, new Feuerwehr(), new Date()},
+	                {"Test", "", new Feuerwehr(), new Date()},
+	                {"Test", "T", null, new Date()},
+	                {"Test", "T", new Feuerwehr(), null}
 	                };
 	        return Arrays.asList(data);
 	    }

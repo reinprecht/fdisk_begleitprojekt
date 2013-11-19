@@ -42,6 +42,9 @@ public class Ausbildung extends BasePersistable {
 			Feuerwehr ort, Date datum) {
 		super();
 		EnsureService.notEmpty("bezeichnung", bezeichnung);
+		EnsureService.notEmpty("kurz_bezeichnung", kurz_bezeichnung);
+		EnsureService.notNull("ort", ort);
+		EnsureService.notNull("datum", datum);
 		this.bezeichnung = bezeichnung;
 		this.kurz_bezeichnung = kurz_bezeichnung;
 		this.ort = ort;

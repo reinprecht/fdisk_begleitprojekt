@@ -1,5 +1,7 @@
 package domain;
 
+import help.EnsureService;
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -33,6 +35,9 @@ public class Ausruestung  extends BasePersistable {
 	public Ausruestung(String bezeichnung, Mitglied benutzer,
 			Date ausgegeben) {
 		super();
+		EnsureService.notEmpty("bezeichnung", bezeichnung);
+		EnsureService.notNull("benutzer", benutzer);
+		EnsureService.notNull("ausgegeben", ausgegeben);
 		this.bezeichnung = bezeichnung;
 		this.benutzer = benutzer;
 		this.ausgegeben = ausgegeben;
