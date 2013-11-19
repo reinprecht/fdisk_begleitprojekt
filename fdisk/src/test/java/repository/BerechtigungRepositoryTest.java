@@ -59,5 +59,6 @@ public class BerechtigungRepositoryTest {
         repository.save(new Berechtigung("Admin"));
 
         Berechtigung byid = repository.findById((long) 1);
+        System.out.println(byid.toString());
     }
 }
