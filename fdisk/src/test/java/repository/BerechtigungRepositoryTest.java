@@ -1,11 +1,8 @@
 
 package repository;
 
-import domain.Ausbildung;
-import domain.Feuerwehr;
+import domain.Berechtigung;
 
-import java.util.Date;
-import java.util.List;
 import javax.sql.DataSource;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -24,7 +21,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 @EnableJpaRepositories
-public class AusbildungRepositoryTest {
+public class BerechtigungRepositoryTest {
 
     @Bean
     public DataSource dataSource() {
@@ -46,7 +43,7 @@ public class AusbildungRepositoryTest {
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
         hibernateJpaVendorAdapter.setShowSql(true);
         hibernateJpaVendorAdapter.setGenerateDdl(true);
-        hibernateJpaVendorAdapter.setDatabase(Database.H2);
+        hibernateJpaVendorAdapter.setDatabase(Database.MYSQL);
         return hibernateJpaVendorAdapter;
     }
 
@@ -57,11 +54,10 @@ public class AusbildungRepositoryTest {
 
     @Test
     public void testMe() {
-        AbstractApplicationContext context = new AnnotationConfigApplicationContext(AusbildungRepositoryTest.class);
-        AusbildungRepository repository = context.getBean(AusbildungRepository.class);
-        repository.save(new Ausbildung("Test", "T",
-    			new Feuerwehr(), new Date()));
+        AbstractApplicationContext context = new AnnotationConfigApplicationContext(BerechtigungRepositoryTest.class);
+        BerechtigungRepository repository = context.getBean(BerechtigungRepository.class);
+        repository.save(new Berechtigung("Admin"));
 
-        Ausbildung byid = repository.findById((long) 1);
+        Berechtigung byid = repository.findById((long) 1);
     }
 }
