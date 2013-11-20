@@ -9,8 +9,10 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
+import domain.DomainPackage;
+
 @Configuration
-@ComponentScan(basePackages = "repositoryjpa")
+@ComponentScan(basePackageClasses = RepositoryJpaPackage.class)
 public class RepositoryJpaConfiguration {
 
 	@Bean
@@ -27,7 +29,7 @@ public class RepositoryJpaConfiguration {
 		LocalContainerEntityManagerFactoryBean lef = new LocalContainerEntityManagerFactoryBean();
 		lef.setDataSource(dataSource);
 		lef.setJpaVendorAdapter(jpaVendorAdapter);
-		lef.setPackagesToScan("domain");
+		lef.setPackagesToScan(DomainPackage.class.getPackage().getName());
 		return lef;
 	}
 }
