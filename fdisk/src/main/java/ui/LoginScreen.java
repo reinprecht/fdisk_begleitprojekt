@@ -1,11 +1,16 @@
 package ui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
+import service.LoginService;
 
 public class LoginScreen extends JFrame {
 
@@ -37,8 +42,8 @@ public class LoginScreen extends JFrame {
 			}
 		});
 
-		jTextField2.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
+		jTextField2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
 				jTextField2ActionPerformed(evt);
 			}
 		});
@@ -213,12 +218,14 @@ public class LoginScreen extends JFrame {
 		// TODO add your handling code here:
 	}
 
-	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-		// TODO add your handling code here:
-	}
 
 	private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {
 		// TODO add your handling code here:
+	}
+
+	//Hier wird das LoginService aufgerufen !
+	private void jButton1ActionPerformed(ActionEvent evt) {
+		LoginService ls = new LoginService();
 	}
 
 	public static void main(String args[]) {
