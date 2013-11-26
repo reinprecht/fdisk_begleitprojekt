@@ -35,20 +35,27 @@ public class Ausbildung extends BasePersistable {
 	
 	@Temporal(TemporalType.DATE)
 	@NotNull
-	@Column(name = "datum", nullable = false)
-	private Date datum;
+	@Column(name = "startdatum", nullable = false)
+	private Date startdatum;
+	
+	@Temporal(TemporalType.DATE)
+	@NotNull
+	@Column(name = "endatum", nullable = false)
+	private Date enddatum;
 
 	public Ausbildung(String bezeichnung, String kurz_bezeichnung,
-			Feuerwehr ort, Date datum) {
+			Feuerwehr ort, Date startdatum, Date enddatum) {
 		super();
 		EnsureService.notEmpty("bezeichnung", bezeichnung);
 		EnsureService.notEmpty("kurz_bezeichnung", kurz_bezeichnung);
 		EnsureService.notNull("ort", ort);
-		EnsureService.notNull("datum", datum);
+		EnsureService.notNull("startdatum", startdatum);
+		EnsureService.notNull("enddatum", enddatum);
 		this.bezeichnung = bezeichnung;
 		this.kurz_bezeichnung = kurz_bezeichnung;
 		this.ort = ort;
-		this.datum = datum;
+		this.startdatum = startdatum;
+		this.enddatum = enddatum;
 	}
 
 	public Ausbildung() {
@@ -79,12 +86,21 @@ public class Ausbildung extends BasePersistable {
 		this.ort = ort;
 	}
 
-	public Date getDatum() {
-		return datum;
+	public Date getStartdatum() {
+		return startdatum;
 	}
 
-	public void setDatum(Date datum) {
-		this.datum = datum;
+	public void setStartdatum(Date startdatum) {
+		this.startdatum = startdatum;
 	}
 
+	public Date getEnddatum() {
+		return enddatum;
+	}
+
+	public void setEnddatum(Date enddatum) {
+		this.enddatum = enddatum;
+	}
+
+	
 }

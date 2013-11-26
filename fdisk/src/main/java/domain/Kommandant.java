@@ -20,10 +20,10 @@ public class Kommandant extends Mitglied {
 
 	public Kommandant(String vorname, String nachname, String dienstgrad,
 			Date geburtsdatum, String wohnort, Feuerwehr feuerwehr,
-			Collection<Ausruestung> ausruestungen, Collection<Kurs> kurse,
+			Collection<Ausruestung> ausruestungen, Collection<Ausbildung> ausbildung,
 			Feuerwehr kommandant_feuerwehr) {
 		super(vorname, nachname, dienstgrad, geburtsdatum, wohnort,
-				feuerwehr, ausruestungen, kurse);
+				feuerwehr, ausruestungen, ausbildung);
 		this.setKommandant_feuerwehr(kommandant_feuerwehr);
 	}
 

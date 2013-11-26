@@ -1,5 +1,7 @@
 package domain;
 
+import help.EnsureService;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -8,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -30,6 +33,7 @@ public class Feuerwehrauto extends BasePersistable {
 	private int sitzplaetze;
 	
 	@ManyToOne
+	@Transient
 	private Feuerwehr feuerwehr;
 	
 	@OneToMany
@@ -38,6 +42,10 @@ public class Feuerwehrauto extends BasePersistable {
 	public Feuerwehrauto(String typ, int sitzplaetze, Feuerwehr feuerwehr,
 			ArrayList<Geraet> geraete) {
 		super();
+		EnsureService.notEmpty("typ", typ);
+		EnsureService.not0("sitzplaetze", sitzplaetze);
+		EnsureService.notNull("feuerwehr", feuerwehr);
+		EnsureService.notNull("geraete", geraete);
 		this.typ = typ;
 		this.sitzplaetze = sitzplaetze;
 		this.feuerwehr = feuerwehr;

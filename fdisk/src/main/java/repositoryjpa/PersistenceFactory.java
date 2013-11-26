@@ -18,8 +18,6 @@ public interface PersistenceFactory {
 	
 	KommandantJpaRepository kommandantRepository();
 	
-	KursJpaRepository kursRepository();
-	
 	MitgliedJpaRepository mitgliedRepository();
 	
 	UserJpaRepository userRepository();

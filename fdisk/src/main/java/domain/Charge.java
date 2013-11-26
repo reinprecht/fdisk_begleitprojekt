@@ -29,9 +29,9 @@ public class Charge extends Mitglied {
 	public Charge(String vorname, String nachname, String dienstgrad,
 			Date geburtsdatum, String wohnort, Feuerwehr feuerwehr,
 			String fachgebiet, Collection<Ausruestung> ausruestungen,
-			Collection<Kurs> kurse) {
+			Collection<Ausbildung> ausbildung) {
 		super(vorname, nachname, dienstgrad, geburtsdatum, wohnort,
-				feuerwehr, ausruestungen, kurse);
+				feuerwehr, ausruestungen, ausbildung);
 		EnsureService.notEmpty("fachgebiet", fachgebiet);
 		this.fachgebiet = fachgebiet;
 	}

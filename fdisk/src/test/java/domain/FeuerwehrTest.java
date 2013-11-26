@@ -1,5 +1,7 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.EntityManager;
@@ -10,13 +12,14 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class AusbildungTest {
+public class FeuerwehrTest {
 	private EntityManagerFactory entityManagerFactory;
 	private EntityManager entityManager;
 
 	@Before
 	public void setup() {
-		entityManagerFactory = Persistence.createEntityManagerFactory("fdisk");
+		entityManagerFactory = Persistence
+				.createEntityManagerFactory("fdisk");
 		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 	}
@@ -33,8 +36,9 @@ public class AusbildungTest {
 
 	@Test
 	public void testMe() {
-		Ausbildung aus = new Ausbildung("TestAusbildung", "TA",
-				new Feuerwehr(), new Date(), new Date());
-		entityManager.persist(aus);
+		Feuerwehr f = new Feuerwehr("PKDF", new ArrayList<Mitglied>(),
+				new ArrayList<Charge>(), new Kommandant(),
+				new ArrayList<Feuerwehrauto>(), new ArrayList<Ausbildung>());
+		entityManager.persist(f);
 	}
 }

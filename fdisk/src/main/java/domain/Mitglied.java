@@ -55,7 +55,7 @@ public class Mitglied extends BasePersistable {
 	private Collection<Ausruestung> ausruestungen;
 	
 	@OneToMany
-	private Collection<Kurs> kurse;
+	private Collection<Ausbildung> ausbildung;
 
 	public Mitglied() {
 		//for jpa
@@ -63,7 +63,7 @@ public class Mitglied extends BasePersistable {
 
 	public Mitglied(String vorname, String nachname, String dienstgrad,
 			Date geburtsdatum, String wohnort, Feuerwehr feuerwehr,
-			Collection<Ausruestung> ausruestungen, Collection<Kurs> kurse) {
+			Collection<Ausruestung> ausruestungen, Collection<Ausbildung> ausbildung) {
 		super();
 		EnsureService.notEmpty("vorname", vorname);
 		EnsureService.notEmpty("nachname", nachname);
@@ -72,7 +72,7 @@ public class Mitglied extends BasePersistable {
 		EnsureService.notEmpty("wohnort", wohnort);
 		EnsureService.notNull("feuerwehr", feuerwehr);
 		EnsureService.notNull("ausruestungen", ausruestungen);
-		EnsureService.notNull("kurse", kurse);
+		EnsureService.notNull("ausbildung", ausbildung);
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.dienstgrad = dienstgrad;
@@ -80,7 +80,7 @@ public class Mitglied extends BasePersistable {
 		this.wohnort = wohnort;
 		this.feuerwehr = feuerwehr;
 		this.ausruestungen = ausruestungen;
-		this.kurse = kurse;
+		this.ausbildung = ausbildung;
 	}
 
 	public String getVorname() {
@@ -139,11 +139,11 @@ public class Mitglied extends BasePersistable {
 		this.ausruestungen = ausruestungen;
 	}
 
-	public Collection<Kurs> getKurse() {
-		return kurse;
+	public Collection<Ausbildung> getKurse() {
+		return ausbildung;
 	}
 
-	public void setKurse(Collection<Kurs> kurse) {
-		this.kurse = kurse;
+	public void setKurse(Collection<Ausbildung> ausbildung) {
+		this.ausbildung = ausbildung;
 	}
 }

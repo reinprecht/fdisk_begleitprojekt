@@ -12,7 +12,6 @@ import repositoryjpa.FeuerwehrautoJpaRepository;
 import repositoryjpa.GeraetJpaRepository;
 import repositoryjpa.JpaRepository;
 import repositoryjpa.KommandantJpaRepository;
-import repositoryjpa.KursJpaRepository;
 import repositoryjpa.MitgliedJpaRepository;
 import repositoryjpa.PersistenceFactory;
 import repositoryjpa.UserJpaRepository;
@@ -54,10 +53,6 @@ public class PersistenceFactoryImpl implements PersistenceFactory {
     	kommandantRepository.setEntityManager(entityManager);
     	repositories.put(KommandantJpaRepository.class, kommandantRepository);
     	
-    	KursJpaRepository kursRepository = new KursJpaRepository();
-    	kursRepository.setEntityManager(entityManager);
-    	repositories.put(KursJpaRepository.class, kursRepository);
-    	
     	MitgliedJpaRepository mitgliedRepository = new MitgliedJpaRepository();
     	mitgliedRepository.setEntityManager(entityManager);
     	repositories.put(MitgliedJpaRepository.class, mitgliedRepository);
@@ -97,10 +92,6 @@ public class PersistenceFactoryImpl implements PersistenceFactory {
 
 	public KommandantJpaRepository kommandantRepository() {
 		return (KommandantJpaRepository)repositories.get(KommandantJpaRepository.class);
-	}
-
-	public KursJpaRepository kursRepository() {
-		return (KursJpaRepository)repositories.get(KursJpaRepository.class);
 	}
 
 	public MitgliedJpaRepository mitgliedRepository() {

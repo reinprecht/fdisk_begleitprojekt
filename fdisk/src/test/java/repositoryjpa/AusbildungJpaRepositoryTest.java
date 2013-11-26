@@ -25,7 +25,7 @@ public class AusbildungJpaRepositoryTest extends AbstractJpaRepositoryTest {
         classRoomJpaRepository.setEntityManager(entityManager);
 
         Ausbildung classRoom = new Ausbildung("Test", "T",
-    			new Feuerwehr(), new Date());
+    			new Feuerwehr(), new Date(), new Date());
         classRoomJpaRepository.persist(classRoom);
 
         Ausbildung classRoom2 = classRoomJpaRepository.findById(classRoom.getId());
