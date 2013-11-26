@@ -1,5 +1,7 @@
 package domain;
 
+import help.EnsureService;
+
 import java.util.Collection;
 import java.util.Date;
 
@@ -30,6 +32,7 @@ public class Charge extends Mitglied {
 			Collection<Kurs> kurse) {
 		super(vorname, nachname, dienstgrad, geburtsdatum, wohnort,
 				feuerwehr, ausruestungen, kurse);
+		EnsureService.notEmpty("fachgebiet", fachgebiet);
 		this.fachgebiet = fachgebiet;
 	}
 

@@ -1,5 +1,7 @@
 package domain;
 
+import help.EnsureService;
+
 import java.util.Collection;
 import java.util.Date;
 
@@ -10,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -45,6 +48,7 @@ public class Mitglied extends BasePersistable {
 	private String wohnort;
 	
 	@ManyToOne
+	@Transient
 	private Feuerwehr feuerwehr;
 	
 	@OneToMany
@@ -61,6 +65,14 @@ public class Mitglied extends BasePersistable {
 			Date geburtsdatum, String wohnort, Feuerwehr feuerwehr,
 			Collection<Ausruestung> ausruestungen, Collection<Kurs> kurse) {
 		super();
+		EnsureService.notEmpty("vorname", vorname);
+		EnsureService.notEmpty("nachname", nachname);
+		EnsureService.notEmpty("dienstgrad", dienstgrad);
+		EnsureService.notNull("geburtsdatum", geburtsdatum);
+		EnsureService.notEmpty("wohnort", wohnort);
+		EnsureService.notNull("feuerwehr", feuerwehr);
+		EnsureService.notNull("ausruestungen", ausruestungen);
+		EnsureService.notNull("kurse", kurse);
 		this.vorname = vorname;
 		this.nachname = nachname;
 		this.dienstgrad = dienstgrad;
