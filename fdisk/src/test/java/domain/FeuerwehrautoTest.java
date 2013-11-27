@@ -1,8 +1,6 @@
 package domain;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,8 +16,7 @@ public class FeuerwehrautoTest {
 
 	@Before
 	public void setup() {
-		entityManagerFactory = Persistence
-				.createEntityManagerFactory("fdisk");
+		entityManagerFactory = Persistence.createEntityManagerFactory("fdisk");
 		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 	}
@@ -36,7 +33,8 @@ public class FeuerwehrautoTest {
 
 	@Test
 	public void testMe() {
-		Feuerwehrauto f = new Feuerwehrauto("A", 1, new Feuerwehr(), new ArrayList<Geraet>());
+		Feuerwehrauto f = new Feuerwehrauto("A", 1, new Feuerwehr(),
+				new ArrayList<Geraet>());
 		entityManager.persist(f);
 	}
 }

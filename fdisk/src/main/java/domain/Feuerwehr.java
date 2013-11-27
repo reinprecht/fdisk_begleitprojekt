@@ -29,6 +29,7 @@ public class Feuerwehr extends BasePersistable {
 	private String ort;
 	
 	@OneToMany
+	@Transient
 	private Collection<Mitglied> mitglieder;
 	
 	@OneToMany

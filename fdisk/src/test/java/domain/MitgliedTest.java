@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -10,7 +11,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class BerechtigungTest {
+public class MitgliedTest {
 	private EntityManagerFactory entityManagerFactory;
 	private EntityManager entityManager;
 
@@ -33,7 +34,7 @@ public class BerechtigungTest {
 
 	@Test
 	public void testMe() {
-		Berechtigung b = new Berechtigung("new Berechtigung", new ArrayList<User>());
-		entityManager.persist(b);
+		Mitglied m = new Mitglied("S", "R", "FM", new Date(), "PKDF", new Feuerwehr(), new ArrayList<Ausruestung>(), new ArrayList<Ausbildung>());
+		entityManager.persist(m);
 	}
 }

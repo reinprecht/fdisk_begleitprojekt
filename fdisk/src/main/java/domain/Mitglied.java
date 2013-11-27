@@ -7,6 +7,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -18,6 +20,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "mitglied")
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS) 
 public class Mitglied extends BasePersistable {
 
 	private static final long serialVersionUID = -8246771010077369302L;

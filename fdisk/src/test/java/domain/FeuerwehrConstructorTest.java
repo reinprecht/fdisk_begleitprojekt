@@ -11,12 +11,12 @@ import org.junit.runners.Parameterized;
 @RunWith(value = Parameterized.class)
 public class FeuerwehrConstructorTest {
 
-	public String ort;
-	public ArrayList<Mitglied> mitglieder;
-	public ArrayList<Charge> chargen;
-	public Kommandant kommandant;
-	public ArrayList<Feuerwehrauto> autos;
-	public ArrayList<Ausbildung> ausbildungen;
+	private String ort;
+	private ArrayList<Mitglied> mitglieder;
+	private ArrayList<Charge> chargen;
+	private Kommandant kommandant;
+	private ArrayList<Feuerwehrauto> autos;
+	private ArrayList<Ausbildung> ausbildungen;
 
 	public FeuerwehrConstructorTest(String ort, ArrayList<Mitglied> mitglieder,
 			ArrayList<Charge> chargen, Kommandant kommandant,

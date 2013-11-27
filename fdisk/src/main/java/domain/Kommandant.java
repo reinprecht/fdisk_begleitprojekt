@@ -1,10 +1,14 @@
 package domain;
 
+import help.EnsureService;
+
 import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "kommandant")
@@ -12,6 +16,8 @@ public class Kommandant extends Mitglied {
 
 	private static final long serialVersionUID = -9031056576232458294L;
 	
+	@ManyToOne
+	@Transient
 	private Feuerwehr kommandant_feuerwehr;
 
 	public Kommandant() {
@@ -24,7 +30,8 @@ public class Kommandant extends Mitglied {
 			Feuerwehr kommandant_feuerwehr) {
 		super(vorname, nachname, dienstgrad, geburtsdatum, wohnort,
 				feuerwehr, ausruestungen, ausbildung);
-		this.setKommandant_feuerwehr(kommandant_feuerwehr);
+		EnsureService.notNull("kommandant_feuerwehr", kommandant_feuerwehr);
+		this.kommandant_feuerwehr = kommandant_feuerwehr;
 	}
 
 	public Feuerwehr getKommandant_feuerwehr() {

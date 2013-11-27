@@ -1,7 +1,11 @@
 package domain;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -19,11 +23,15 @@ public class Berechtigung extends BasePersistable {
 	@Column(name = "berechtigung", nullable = false, length = 30)
 	private String berechtigung;
 	
-	public Berechtigung(String berechtigung) {
+	@OneToMany
+	private Collection<User> berechtigte;
+
+	public Berechtigung(String berechtigung, ArrayList<User> berechtigte) {
 		super();
 		EnsureService.notEmpty("berechtigung", berechtigung);
-		EnsureService.notNull("berechtigung", berechtigung);
+		EnsureService.notNull("berechtigung", berechtigte);
 		this.berechtigung = berechtigung;
+		this.berechtigte = berechtigte;
 	}
 	
 	public Berechtigung() {
@@ -36,5 +44,13 @@ public class Berechtigung extends BasePersistable {
 
 	public void setBerechtigung(String berechtigung) {
 		this.berechtigung = berechtigung;
+	}
+	
+	public Collection<User> getBerechtigte() {
+		return berechtigte;
+	}
+
+	public void setBerechtigte(ArrayList<User> berechtigte) {
+		this.berechtigte = berechtigte;
 	}
 }

@@ -1,23 +1,49 @@
 package domain;
 
-import java.util.ArrayList;
+import help.EnsureService;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "user")
 public class User extends BasePersistable{
 
 	private static final long serialVersionUID = 2056184011070687603L;
+	
+	@Size(max = 15)
+	@NotNull
+	@Column(name = "username", nullable = false, length = 15)
 	private String username;
+	
+	@Size(max = 15)
+	@NotNull
+	@Column(name = "passwort", nullable = false, length = 15)
 	private String passwort;
-	private ArrayList<Berechtigung> berechtigungen;
+	
+	@OneToMany
+	private Collection<Berechtigung> berechtigungen;
+	
+	@ManyToOne
+	@Transient
 	private Mitglied mitglied;
 	
 	public User(String username, String passwort,
 			ArrayList<Berechtigung> berechtigungen, Mitglied mitglied) {
 		super();
+		EnsureService.notEmpty("username", username);
+		EnsureService.notEmpty("passwort", passwort);
+		EnsureService.notNull("berechtigungen", berechtigungen);
+		EnsureService.notNull("mitglied", mitglied);
 		this.username = username;
 		this.passwort = passwort;
 		this.berechtigungen = berechtigungen;
@@ -25,11 +51,7 @@ public class User extends BasePersistable{
 	}
 	
 	public User() {
-		super();
-		this.username = "Admin";
-		this.passwort = "admin";
-		this.berechtigungen = null;
-		this.mitglied = null;
+		//for jpa
 	}
 	
 	public String getUsername() {
@@ -44,7 +66,7 @@ public class User extends BasePersistable{
 	public void setPasswort(String passwort) {
 		this.passwort = passwort;
 	}
-	public ArrayList<Berechtigung> getBerechtigungen() {
+	public Collection<Berechtigung> getBerechtigungen() {
 		return berechtigungen;
 	}
 	public void setBerechtigungen(ArrayList<Berechtigung> berechtigungen) {

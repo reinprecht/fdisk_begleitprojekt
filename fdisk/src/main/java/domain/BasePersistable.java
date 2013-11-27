@@ -12,7 +12,7 @@ public abstract class BasePersistable implements Serializable {
 	private static final long serialVersionUID = 4209931258096103397L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long id;
 
 	public Long getId() {

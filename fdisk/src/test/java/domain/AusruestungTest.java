@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.EntityManager;
@@ -17,8 +16,7 @@ public class AusruestungTest {
 
 	@Before
 	public void setup() {
-		entityManagerFactory = Persistence
-				.createEntityManagerFactory("fdisk");
+		entityManagerFactory = Persistence.createEntityManagerFactory("fdisk");
 		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 	}
@@ -36,8 +34,7 @@ public class AusruestungTest {
 	@Test
 	public void testMe() {
 		Mitglied m = new Mitglied();
-		Ausruestung a = new Ausruestung("Testausruestung", m,
-				new Date());
+		Ausruestung a = new Ausruestung("Testausruestung", m, new Date());
 		entityManager.persist(a);
 	}
 }

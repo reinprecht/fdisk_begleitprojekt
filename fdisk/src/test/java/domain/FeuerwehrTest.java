@@ -1,8 +1,6 @@
 package domain;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,8 +16,7 @@ public class FeuerwehrTest {
 
 	@Before
 	public void setup() {
-		entityManagerFactory = Persistence
-				.createEntityManagerFactory("fdisk");
+		entityManagerFactory = Persistence.createEntityManagerFactory("fdisk");
 		entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 	}
