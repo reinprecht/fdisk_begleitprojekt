@@ -2,11 +2,11 @@ package repository;
 
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
-import domain.Ausbildung;
+import domain.Mitglied;
 
-public interface MitgliedRepository extends CrudRepository<Ausbildung, Long>{
+public interface MitgliedRepository extends CrudRepository<Mitglied, Long>{
 
-	public List<Ausbildung> findAll();
+	public List<Mitglied> findAll();
 
-	public Ausbildung findById(Long id);
+	public Mitglied findById(Long id);
 }
