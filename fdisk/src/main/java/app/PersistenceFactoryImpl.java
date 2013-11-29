@@ -1,6 +1,7 @@
 package app;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import repositoryjpa.AusbildungJpaRepository;
@@ -18,7 +19,7 @@ import repositoryjpa.UserJpaRepository;
 
 public class PersistenceFactoryImpl implements PersistenceFactory {
 
-    private final HashMap<Class<?>, JpaRepository> repositories = new HashMap<>();
+    private final Map<Class<?>, JpaRepository> repositories = new HashMap<>();
     
     public PersistenceFactoryImpl(EntityManager entityManager){
     	AusbildungJpaRepository ausbildungJPARepository = new AusbildungJpaRepository();

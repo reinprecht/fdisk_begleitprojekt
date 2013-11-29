@@ -2,7 +2,6 @@ package domain;
 
 import help.EnsureService;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Column;
@@ -38,7 +37,7 @@ public class User extends BasePersistable{
 	private Mitglied mitglied;
 	
 	public User(String username, String passwort,
-			ArrayList<Berechtigung> berechtigungen, Mitglied mitglied) {
+			Collection<Berechtigung> berechtigungen, Mitglied mitglied) {
 		super();
 		EnsureService.notEmpty("username", username);
 		EnsureService.notEmpty("passwort", passwort);
@@ -69,7 +68,7 @@ public class User extends BasePersistable{
 	public Collection<Berechtigung> getBerechtigungen() {
 		return berechtigungen;
 	}
-	public void setBerechtigungen(ArrayList<Berechtigung> berechtigungen) {
+	public void setBerechtigungen(Collection<Berechtigung> berechtigungen) {
 		this.berechtigungen = berechtigungen;
 	}
 	public Mitglied getMitglied() {

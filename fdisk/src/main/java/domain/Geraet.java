@@ -19,7 +19,7 @@ import javax.validation.constraints.Size;
  * Time: 17:45
  */
 @Entity
-@Table(name = "gerät")
+@Table(name = "geraet")
 public class Geraet  extends BasePersistable {
 
 	private static final long serialVersionUID = 9186456843145873233L;
@@ -31,7 +31,7 @@ public class Geraet  extends BasePersistable {
 	
 	@Temporal(TemporalType.DATE)
 	@NotNull
-	@Column(name = "prüfungstermin", nullable = false)
+	@Column(name = "pruefungstermin", nullable = false)
     private Date pruefungstermin;
     
 	@ManyToOne
@@ -48,7 +48,7 @@ public class Geraet  extends BasePersistable {
     }
     
     public Geraet(){
-            bezeichnung = "Mustergerät";
+            bezeichnung = "Mustergerï¿½t";
             pruefungstermin = new Date();
             auto = new Feuerwehrauto();
     }

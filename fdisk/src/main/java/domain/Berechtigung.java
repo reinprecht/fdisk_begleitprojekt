@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Column;
@@ -26,7 +25,7 @@ public class Berechtigung extends BasePersistable {
 	@OneToMany
 	private Collection<User> berechtigte;
 
-	public Berechtigung(String berechtigung, ArrayList<User> berechtigte) {
+	public Berechtigung(String berechtigung, Collection<User> berechtigte) {
 		super();
 		EnsureService.notEmpty("berechtigung", berechtigung);
 		EnsureService.notNull("berechtigung", berechtigte);
@@ -50,7 +49,7 @@ public class Berechtigung extends BasePersistable {
 		return berechtigte;
 	}
 
-	public void setBerechtigte(ArrayList<User> berechtigte) {
+	public void setBerechtigte(Collection<User> berechtigte) {
 		this.berechtigte = berechtigte;
 	}
 }

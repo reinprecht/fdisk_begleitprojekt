@@ -18,7 +18,7 @@ public class Kommandant extends Mitglied {
 	
 	@ManyToOne
 	@Transient
-	private Feuerwehr kommandant_feuerwehr;
+	private Feuerwehr kommandantFeuerwehr;
 
 	public Kommandant() {
 		//for jpa
@@ -31,14 +31,14 @@ public class Kommandant extends Mitglied {
 		super(vorname, nachname, dienstgrad, geburtsdatum, wohnort,
 				feuerwehr, ausruestungen, ausbildung);
 		EnsureService.notNull("kommandant_feuerwehr", kommandant_feuerwehr);
-		this.kommandant_feuerwehr = kommandant_feuerwehr;
+		this.kommandantFeuerwehr = kommandant_feuerwehr;
 	}
 
 	public Feuerwehr getKommandant_feuerwehr() {
-		return kommandant_feuerwehr;
+		return kommandantFeuerwehr;
 	}
 
 	public void setKommandant_feuerwehr(Feuerwehr kommandant_feuerwehr) {
-		this.kommandant_feuerwehr = kommandant_feuerwehr;
+		this.kommandantFeuerwehr = kommandant_feuerwehr;
 	}
 }

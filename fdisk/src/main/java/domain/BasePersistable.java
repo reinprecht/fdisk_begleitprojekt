@@ -36,8 +36,7 @@ public abstract class BasePersistable implements Serializable {
 			return false;
 		}
 		BasePersistable other = (BasePersistable) o;
-		if (this.getId() == null) {
-			if (other.getId() != null)
+		if (this.getId() == null && other.getId() != null) {
 				return false;
 		}
 		return this.getId().equals(other.getId());

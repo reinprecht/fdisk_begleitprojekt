@@ -27,7 +27,7 @@ public class Ausbildung extends BasePersistable {
 	@Size(max = 3)
 	@NotNull
 	@Column(name = "kurzbezeichnung", nullable = false, length = 3)
-	private String kurz_bezeichnung;
+	private String kurzBezeichnung;
 	
 	@ManyToOne
 	@Transient
@@ -52,7 +52,7 @@ public class Ausbildung extends BasePersistable {
 		EnsureService.notNull("startdatum", startdatum);
 		EnsureService.notNull("enddatum", enddatum);
 		this.bezeichnung = bezeichnung;
-		this.kurz_bezeichnung = kurz_bezeichnung;
+		this.kurzBezeichnung = kurz_bezeichnung;
 		this.ort = ort;
 		this.startdatum = startdatum;
 		this.enddatum = enddatum;
@@ -71,11 +71,11 @@ public class Ausbildung extends BasePersistable {
 	}
 
 	public String getKurz_bezeichnung() {
-		return kurz_bezeichnung;
+		return kurzBezeichnung;
 	}
 
 	public void setKurz_bezeichnung(String kurz_bezeichnung) {
-		this.kurz_bezeichnung = kurz_bezeichnung;
+		this.kurzBezeichnung = kurz_bezeichnung;
 	}
 
 	public Feuerwehr getOrt() {

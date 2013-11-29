@@ -6,7 +6,7 @@ import domain.Kommandant;
 
 public interface KommandantRepository extends CrudRepository<Kommandant, Long>{
 
-	public List<Kommandant> findAll();
+	List<Kommandant> findAll();
 
-	public Kommandant findById(Long id);
+	Kommandant findById(Long id);
 }

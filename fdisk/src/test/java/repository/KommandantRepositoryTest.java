@@ -25,6 +25,6 @@ public class KommandantRepositoryTest {
 				new ArrayList<Ausbildung>(), new Feuerwehr()));
 
 		Kommandant byid = repository.findById((long) 1);
-		System.out.println(byid.toString());
+		//System.out.println(byid.toString());
 	}
 }

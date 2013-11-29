@@ -1,6 +1,6 @@
 package service;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.stereotype.Service;
@@ -19,7 +19,7 @@ public class MitgliedService {
 	
 	public void createNewMitglied(String vorname, String nachname, String dienstgrad,
 			Date geburtsdatum, String wohnort, Feuerwehr feuerwehr,
-			ArrayList<Ausruestung> ausruestungen, ArrayList<Ausbildung> ausbildung){
+			Collection<Ausruestung> ausruestungen, Collection<Ausbildung> ausbildung){
 		Mitglied mitglied = new Mitglied(vorname, nachname, dienstgrad, geburtsdatum,
 				wohnort, feuerwehr, ausruestungen, ausbildung);
 		mitgliedJpaRepository.persist(mitglied);

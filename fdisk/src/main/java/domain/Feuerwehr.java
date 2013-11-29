@@ -2,7 +2,6 @@ package domain;
 
 import help.EnsureService;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Column;
@@ -49,9 +48,9 @@ public class Feuerwehr extends BasePersistable {
 		//for jpa
 	}
 
-	public Feuerwehr(String ort, ArrayList<Mitglied> mitglieder,
-			ArrayList<Charge> chargen, Kommandant kommandant,
-			ArrayList<Feuerwehrauto> autos, ArrayList<Ausbildung> ausbildungen) {
+	public Feuerwehr(String ort, Collection<Mitglied> mitglieder,
+			Collection<Charge> chargen, Kommandant kommandant,
+			Collection<Feuerwehrauto> autos, Collection<Ausbildung> ausbildungen) {
 		super();
 		EnsureService.notEmpty("ort", ort);
 		EnsureService.notNull("mitglieder", mitglieder);

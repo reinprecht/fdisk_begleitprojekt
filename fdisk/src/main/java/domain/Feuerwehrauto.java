@@ -2,7 +2,6 @@ package domain;
 
 import help.EnsureService;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Column;
@@ -40,7 +39,7 @@ public class Feuerwehrauto extends BasePersistable {
 	private Collection<Geraet> geraete;
 
 	public Feuerwehrauto(String typ, int sitzplaetze, Feuerwehr feuerwehr,
-			ArrayList<Geraet> geraete) {
+			Collection<Geraet> geraete) {
 		super();
 		EnsureService.notEmpty("typ", typ);
 		EnsureService.not0("sitzplaetze", sitzplaetze);
