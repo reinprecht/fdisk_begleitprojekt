@@ -1,3 +1,4 @@
 package service;
 
-public interface ServicePackage {}
+public interface ServicePackage {
+}

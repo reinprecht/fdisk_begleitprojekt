@@ -1,20 +1,24 @@
 package app;
 
+import java.util.HashMap;
+
 import repositoryjpa.PersistenceFactory;
 import service.MitgliedService;
+import service.Service;
 import service.ServiceFactory;
 
 public class ServiceFactoryImpl implements ServiceFactory {
-	
-	 private PersistenceFactory persistenceFactory;
 
-	    public ServiceFactoryImpl(PersistenceFactory persistenceFactory) {
-	        this.persistenceFactory = persistenceFactory;
-	    }
+	private final HashMap<Class<?>, Service> services = new HashMap<>();
+	private PersistenceFactory persistenceFactory;
 
-		@Override
-		public MitgliedService mitgliedService() {
-			return new MitgliedService();
-		}
+	public ServiceFactoryImpl(PersistenceFactory persistenceFactory) {
+		this.persistenceFactory = persistenceFactory;
+	}
+
+	@Override
+	public MitgliedService mitgliedService() {
+		return new MitgliedService();
+	}
 
 }

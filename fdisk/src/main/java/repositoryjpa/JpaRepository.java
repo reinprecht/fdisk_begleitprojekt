@@ -1,4 +1,4 @@
 package repositoryjpa;
-public interface JpaRepository {
 
+public interface JpaRepository {
 }

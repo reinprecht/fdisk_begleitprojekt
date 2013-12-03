@@ -1,3 +1,7 @@
 package domain;
 
-public interface DomainPackage {}
+/*
+ * To reference the base package of all domain objects.
+ */
+public interface DomainPackage {
+}
