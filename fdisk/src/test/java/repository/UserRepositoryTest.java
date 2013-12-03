@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.util.Assert;
 
 import domain.Berechtigung;
 import domain.Mitglied;
@@ -20,7 +21,7 @@ public class UserRepositoryTest {
 				.getBean(UserRepository.class);
 		repository.save(new User("S", "*", new ArrayList<Berechtigung>(), new Mitglied()));
 
-		User byid = repository.findById((long) 1);
-		System.out.println(byid.toString());
+		User user = repository.findById((long) 1);
+		Assert.notNull(user);
 	}
 }

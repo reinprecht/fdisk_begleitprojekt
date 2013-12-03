@@ -6,6 +6,7 @@ import java.util.Date;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.util.Assert;
 
 import domain.Ausbildung;
 import domain.Ausruestung;
@@ -24,7 +25,7 @@ public class KommandantRepositoryTest {
 				new Feuerwehr(), new ArrayList<Ausruestung>(),
 				new ArrayList<Ausbildung>(), new Feuerwehr()));
 
-		Kommandant byid = repository.findById((long) 1);
-		//System.out.println(byid.toString());
+		Kommandant kommandant = repository.findById((long) 1);
+		Assert.notNull(kommandant);
 	}
 }

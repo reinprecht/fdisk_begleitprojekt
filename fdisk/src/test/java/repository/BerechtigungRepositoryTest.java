@@ -8,6 +8,7 @@ import domain.User;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.util.Assert;
 
 public class BerechtigungRepositoryTest {
 
@@ -19,7 +20,7 @@ public class BerechtigungRepositoryTest {
 				.getBean(BerechtigungRepository.class);
 		repository.save(new Berechtigung("Admin", new ArrayList<User>()));
 
-		Berechtigung byid = repository.findById((long) 1);
-		System.out.println(byid.toString());
+		Berechtigung berechtigung = repository.findById((long) 1);
+		Assert.notNull(berechtigung);
 	}
 }

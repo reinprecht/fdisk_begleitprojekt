@@ -5,6 +5,7 @@ import java.util.Date;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.util.Assert;
 
 import domain.Feuerwehrauto;
 import domain.Geraet;
@@ -18,7 +19,7 @@ public class GeraetRepositoryTest {
 		GeraetRepository repository = context.getBean(GeraetRepository.class);
 		repository.save(new Geraet("S", new Date(), new Feuerwehrauto()));
 
-		Geraet byid = repository.findById((long) 1);
-		System.out.println(byid.toString());
+		Geraet geraet = repository.findById((long) 1);
+		Assert.notNull(geraet);
 	}
 }

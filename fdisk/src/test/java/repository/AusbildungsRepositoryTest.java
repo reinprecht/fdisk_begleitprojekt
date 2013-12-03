@@ -7,6 +7,7 @@ import domain.Feuerwehr;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.util.Assert;
 
 public class AusbildungsRepositoryTest {
 
@@ -18,7 +19,7 @@ public class AusbildungsRepositoryTest {
 				.getBean(AusbildungRepository.class);
 		repository.save(new Ausbildung("TEST", "T", new Feuerwehr(), new Date(), new Date()));
 
-		Ausbildung byid = repository.findById((long) 1);
-		System.out.println(byid.toString());
+		Ausbildung ausbildung = repository.findById((long) 1);
+		Assert.notNull(ausbildung);
 	}
 }

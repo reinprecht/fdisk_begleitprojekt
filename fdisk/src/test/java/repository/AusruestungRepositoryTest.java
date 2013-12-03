@@ -7,6 +7,7 @@ import domain.Mitglied;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.util.Assert;
 
 public class AusruestungRepositoryTest {
 
@@ -18,7 +19,7 @@ public class AusruestungRepositoryTest {
 				.getBean(AusruestungRepository.class);
 		repository.save(new Ausruestung("Test", new Mitglied(), new Date()));
 
-		Ausruestung byid = repository.findById((long) 1);
-		System.out.println(byid.toString());
+		Ausruestung ausruestung = repository.findById((long) 1);
+		Assert.notNull(ausruestung);
 	}
 }

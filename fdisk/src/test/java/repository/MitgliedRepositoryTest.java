@@ -6,6 +6,7 @@ import java.util.Date;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.util.Assert;
 
 import domain.Ausbildung;
 import domain.Ausruestung;
@@ -24,7 +25,7 @@ public class MitgliedRepositoryTest {
 				new Feuerwehr(), new ArrayList<Ausruestung>(),
 				new ArrayList<Ausbildung>()));
 
-		Mitglied byid = repository.findById((long) 1);
-		System.out.println(byid.toString());
+		Mitglied mitglied = repository.findById((long) 1);
+		Assert.notNull(mitglied);
 	}
 }

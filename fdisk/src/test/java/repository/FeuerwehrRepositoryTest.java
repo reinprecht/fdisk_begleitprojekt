@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.util.Assert;
 
 import domain.Ausbildung;
 import domain.Charge;
@@ -24,7 +25,7 @@ public class FeuerwehrRepositoryTest {
 				new ArrayList<Charge>(), new Kommandant(),
 				new ArrayList<Feuerwehrauto>(), new ArrayList<Ausbildung>()));
 
-		Feuerwehr byid = repository.findById((long) 1);
-		System.out.println(byid.toString());
+		Feuerwehr feuerwehr = repository.findById((long) 1);
+		Assert.notNull(feuerwehr);
 	}
 }
