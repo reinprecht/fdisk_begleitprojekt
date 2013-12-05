@@ -21,5 +21,6 @@ public class AusbildungsRepositoryTest {
 
 		Ausbildung ausbildung = repository.findById((long) 1);
 		Assert.notNull(ausbildung);
+		context.close();
 	}
 }

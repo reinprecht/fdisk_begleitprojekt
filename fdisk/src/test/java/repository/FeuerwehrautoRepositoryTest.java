@@ -23,5 +23,6 @@ public class FeuerwehrautoRepositoryTest {
 
 		Feuerwehrauto feuerwehrauto = repository.findById((long) 1);
 		Assert.notNull(feuerwehrauto);
+		context.close();
 	}
 }

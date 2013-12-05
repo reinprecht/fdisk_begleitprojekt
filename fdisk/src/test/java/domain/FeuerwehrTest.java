@@ -34,7 +34,7 @@ public class FeuerwehrTest {
 	@Test
 	public void testMe() {
 		Feuerwehr f = new Feuerwehr("PKDF", new ArrayList<Mitglied>(),
-				new ArrayList<Charge>(), new Kommandant(),
+				new ArrayList<Charge>(), new Mitglied(),
 				new ArrayList<Feuerwehrauto>(), new ArrayList<Ausbildung>());
 		entityManager.persist(f);
 	}

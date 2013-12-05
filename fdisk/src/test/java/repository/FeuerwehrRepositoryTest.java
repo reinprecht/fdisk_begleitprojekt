@@ -11,7 +11,6 @@ import domain.Ausbildung;
 import domain.Charge;
 import domain.Feuerwehr;
 import domain.Feuerwehrauto;
-import domain.Kommandant;
 import domain.Mitglied;
 
 public class FeuerwehrRepositoryTest {
@@ -22,10 +21,11 @@ public class FeuerwehrRepositoryTest {
 				RepositoryTestConfiguration.class);
 		FeuerwehrRepository repository = context.getBean(FeuerwehrRepository.class);
 		repository.save(new Feuerwehr("PKDF", new ArrayList<Mitglied>(),
-				new ArrayList<Charge>(), new Kommandant(),
+				new ArrayList<Charge>(), new Mitglied(),
 				new ArrayList<Feuerwehrauto>(), new ArrayList<Ausbildung>()));
 
 		Feuerwehr feuerwehr = repository.findById((long) 1);
 		Assert.notNull(feuerwehr);
+		context.close();
 	}
 }

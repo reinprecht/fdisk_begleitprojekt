@@ -32,11 +32,12 @@ public class Feuerwehr extends BasePersistable {
 	private Collection<Mitglied> mitglieder;
 	
 	@OneToMany
+	@Transient
 	private Collection<Charge> chargen;
 	
 	@ManyToOne
 	@Transient
-	private Kommandant kommandant;
+	private Mitglied kommandant;
 	
 	@OneToMany
 	private Collection<Feuerwehrauto> autos;
@@ -49,7 +50,7 @@ public class Feuerwehr extends BasePersistable {
 	}
 
 	public Feuerwehr(String ort, Collection<Mitglied> mitglieder,
-			Collection<Charge> chargen, Kommandant kommandant,
+			Collection<Charge> chargen, Mitglied kommandant,
 			Collection<Feuerwehrauto> autos, Collection<Ausbildung> ausbildungen) {
 		super();
 		EnsureService.notEmpty("ort", ort);
@@ -90,11 +91,11 @@ public class Feuerwehr extends BasePersistable {
 		this.chargen = chargen;
 	}
 
-	public Kommandant getKommandant() {
+	public Mitglied getKommandant() {
 		return kommandant;
 	}
 
-	public void setKommandant(Kommandant kommandant) {
+	public void setKommandant(Mitglied kommandant) {
 		this.kommandant = kommandant;
 	}
 

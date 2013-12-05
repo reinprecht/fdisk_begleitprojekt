@@ -21,5 +21,6 @@ public class GeraetRepositoryTest {
 
 		Geraet geraet = repository.findById((long) 1);
 		Assert.notNull(geraet);
+		context.close();
 	}
 }

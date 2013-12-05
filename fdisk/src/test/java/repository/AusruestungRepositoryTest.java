@@ -21,5 +21,6 @@ public class AusruestungRepositoryTest {
 
 		Ausruestung ausruestung = repository.findById((long) 1);
 		Assert.notNull(ausruestung);
+		context.close();
 	}
 }

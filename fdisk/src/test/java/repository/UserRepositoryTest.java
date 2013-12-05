@@ -23,5 +23,6 @@ public class UserRepositoryTest {
 
 		User user = repository.findById((long) 1);
 		Assert.notNull(user);
+		context.close();
 	}
 }

@@ -27,5 +27,6 @@ public class MitgliedRepositoryTest {
 
 		Mitglied mitglied = repository.findById((long) 1);
 		Assert.notNull(mitglied);
+		context.close();
 	}
 }

@@ -22,5 +22,6 @@ public class BerechtigungRepositoryTest {
 
 		Berechtigung berechtigung = repository.findById((long) 1);
 		Assert.notNull(berechtigung);
+		context.close();
 	}
 }

@@ -14,12 +14,12 @@ public class FeuerwehrConstructorTest {
 	private String ort;
 	private ArrayList<Mitglied> mitglieder;
 	private ArrayList<Charge> chargen;
-	private Kommandant kommandant;
+	private Mitglied kommandant;
 	private ArrayList<Feuerwehrauto> autos;
 	private ArrayList<Ausbildung> ausbildungen;
 
 	public FeuerwehrConstructorTest(String ort, ArrayList<Mitglied> mitglieder,
-			ArrayList<Charge> chargen, Kommandant kommandant,
+			ArrayList<Charge> chargen, Mitglied kommandant,
 			ArrayList<Feuerwehrauto> autos, ArrayList<Ausbildung> ausbildungen) {
 		this.ort = ort;
 		this.mitglieder = mitglieder;
@@ -33,21 +33,21 @@ public class FeuerwehrConstructorTest {
 	public static Collection<Object[]> data() {
 		Object[][] data = new Object[][] { //
 				{ "", new ArrayList<Mitglied>(), new ArrayList<Charge>(),
-						new Kommandant(), new ArrayList<Feuerwehrauto>(),
+						new Mitglied(), new ArrayList<Feuerwehrauto>(),
 						new ArrayList<Ausbildung>() },
-				{ "PKDF", null, new ArrayList<Charge>(), new Kommandant(),
+				{ "PKDF", null, new ArrayList<Charge>(), new Mitglied(),
 						new ArrayList<Feuerwehrauto>(),
 						new ArrayList<Ausbildung>() },
-				{ "", new ArrayList<Mitglied>(), null, new Kommandant(),
+				{ "", new ArrayList<Mitglied>(), null, new Mitglied(),
 						new ArrayList<Feuerwehrauto>(),
 						new ArrayList<Ausbildung>() },
 				{ "", new ArrayList<Mitglied>(), new ArrayList<Charge>(), null,
 						new ArrayList<Feuerwehrauto>(),
 						new ArrayList<Ausbildung>() },
 				{ "", new ArrayList<Mitglied>(), new ArrayList<Charge>(),
-						new Kommandant(), null, new ArrayList<Ausbildung>() },
+						new Mitglied(), null, new ArrayList<Ausbildung>() },
 				{ "", new ArrayList<Mitglied>(), new ArrayList<Charge>(),
-						new Kommandant(), new ArrayList<Feuerwehrauto>(), null } };
+						new Mitglied(), new ArrayList<Feuerwehrauto>(), null } };
 		return Arrays.asList(data);
 	}
 

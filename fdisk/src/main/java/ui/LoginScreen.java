@@ -215,12 +215,10 @@ public class LoginScreen extends JFrame {
 
 
 	private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
-		// TODO add your handling code here:
 	}
 
 
 	private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {
-		// TODO add your handling code here:
 	}
 
 	//Hier wird das LoginService aufgerufen !

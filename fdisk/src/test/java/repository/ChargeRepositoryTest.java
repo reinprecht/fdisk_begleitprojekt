@@ -26,5 +26,6 @@ public class ChargeRepositoryTest {
 
 		Charge charge = repository.findById((long) 1);
 		Assert.notNull(charge);
+		context.close();
 	}
 }
